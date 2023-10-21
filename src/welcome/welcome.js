@@ -4,7 +4,7 @@ export default function Welcome(){
     return(
         <div className="welcome">
             <div className="border">
-                <h2>test</h2>
+                <h2>tetetett</h2>
                 <br/>
                 <a href="/register">Sign up</a>
                 <br/>
