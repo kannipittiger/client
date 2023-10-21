@@ -1,0 +1,35 @@
+.register {
+    color:white;
+    font-size: calc(10px + 2vmin);
+    background-color: #30343F;
+    min-height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    border-width: 10px;
+    border-color:black;
+}
+.input{
+    width: 250px;
+    height: 30px;
+    background-color: #30343F;
+    border-color: white;
+    color:white;
+}
+.register-btn{
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color:#E4D9FF;
+    width: 250px;
+    height: 40px;
+
+}
+#font-btn{
+    align-self: center;
+    font-weight: bold;
+    font-size: 20px;
+    color:#30343F;
+}

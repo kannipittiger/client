@@ -1,0 +1,47 @@
+.login {
+    color:white;
+    font-size: calc(10px + 2vmin);
+    background-color: #30343F;
+    min-height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.input{
+    width: 300px;
+    height: 30px;
+    background-color: #30343F;
+    border-color: white;
+    color:white;
+}
+.login-btn{
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color:#E4D9FF;
+    width: 300px;
+    height: 40px;
+    display: flex; /* เพิ่ม flexbox เพื่อจัดตรงกลางตามแนวตั้งและแนวนอน */
+}
+#font-btn{
+    align-self: center;
+    font-weight: bold;
+    font-size: 20px;
+    color:#30343F;
+}
+.link {
+    color: white;
+    text-align: center; /* จัดตรงกลางตามแนวนอน */
+    font-size: 15px;
+    display: flex; /* เพิ่ม flexbox เพื่อจัดตรงกลางตามแนวตั้งและแนวนอน */
+    justify-content: center; /* จัดตรงกลางตามแนวนอน */
+    align-items: center; /* จัดตรงกลางตามแนวตั้ง */
+}
+.no-acc{
+    color:white;
+    justify-content: center;
+    align-items: center;
+    font-size:15px;   
+    text-align: center;
+}
