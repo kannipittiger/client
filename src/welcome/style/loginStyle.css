@@ -1,17 +1,17 @@
 .login {
     color:white;
     font-size: calc(10px + 2vmin);
-    background-color: #30343F;
+    background-color: #151c37;
     min-height: 100vh;
     display:flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.input{
+.input-login{
     width: 300px;
     height: 30px;
-    background-color: #30343F;
+    background-color: #2a2d36;
     border-color: white;
     color:white;
 }
@@ -44,4 +44,14 @@
     align-items: center;
     font-size:15px;   
     text-align: center;
+}
+.border-login{
+    background-color: #2a2d36;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 80vh;
+    min-width: 80vh;
+    flex-direction: column;
+    border-radius: 50px;
 }

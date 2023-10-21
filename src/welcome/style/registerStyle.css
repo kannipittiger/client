@@ -1,7 +1,7 @@
 .register {
     color:white;
     font-size: calc(10px + 2vmin);
-    background-color: #30343F;
+    background-color: #151c37;
     min-height: 100vh;
     display:flex;
     align-items: center;
@@ -11,10 +11,10 @@
     border-width: 10px;
     border-color:black;
 }
-.input{
+.input-register{
     width: 250px;
     height: 30px;
-    background-color: #30343F;
+    background-color: #2a2d36;
     border-color: white;
     color:white;
 }
@@ -32,4 +32,14 @@
     font-weight: bold;
     font-size: 20px;
     color:#30343F;
+}
+.border-register{
+    background-color: #2a2d36;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 90vh;
+    min-width: 80vh;
+    flex-direction: column;
+    border-radius: 50px;
 }
