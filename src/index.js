@@ -10,7 +10,7 @@ import Register from './welcome/register'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Register />
+    <Welcome />
   </React.StrictMode>
 );
 
