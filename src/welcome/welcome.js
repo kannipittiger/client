@@ -4,7 +4,7 @@ export default function Welcome(){
     return(
         <div className="welcome">
             <div className="border">
-                <h2>tetetett</h2>
+                <h2>Welcome to Moodify</h2>
                 <br/>
                 <a href="/register">Sign up</a>
                 <br/>
