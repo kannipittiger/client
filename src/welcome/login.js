@@ -1,6 +1,6 @@
 import './style/loginStyle.css'
 import {Link} from 'react-router-dom';
-export default function Login () {
+const Login = () => {
     return(
         <div className="login">
             <div className="border-login">
@@ -24,3 +24,4 @@ export default function Login () {
         </div>
     );
 }
+export default Login;
