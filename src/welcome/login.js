@@ -1,4 +1,5 @@
 import './style/loginStyle.css'
+import {Link} from 'react-router-dom';
 export default function Login () {
     return(
         <div className="login">
@@ -14,9 +15,11 @@ export default function Login () {
                 </h5>
                 <button className="login-btn" id="font-btn">Log in</button>
                 <br/>
-                <a className="link" href="welcome.js">Forgot password</a>
+                <nav>
+                <Link className="link" to="/recover">Forgot password</Link>
                 <p className="no-acc">Don't have an account?</p>
-                <a className="link" href="register.js">Sign up for Moodify</a>
+                <Link className="link" to="/register">Sign up for Moodify</Link>
+                </nav>
             </div>
         </div>
     );

@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Welcome from './welcome/welcome'
-import Login from './welcome/login'
-import Register from './welcome/register'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

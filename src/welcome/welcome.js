@@ -8,9 +8,9 @@ export default function Welcome(){
                 <h2>Welcome to Moodify</h2>
                 <br/>
                 <nav>
-                <Link to="/register">Sign up</Link>
-                <br/>
-                <Link to="/login">Log in</Link>
+                <Link to="/register"><button className='btn'>Sign up</button></Link>
+                <br/><br/>
+                <Link to="/login"><button className='btn'>Log in</button></Link>
                 </nav>
             </div>
         </div>

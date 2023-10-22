@@ -7,10 +7,6 @@
     align-items: center;
     justify-content: center;
 }
-.form{
-    border-width: 10px;
-    border-color:black;
-}
 .input-register{
     width: 250px;
     height: 30px;

@@ -1,7 +1,7 @@
 .welcome {
     color:white;
     font-size: calc(10px + 2vmin);
-    background-color: #30343F;
+    background-color: #151c37;
     min-height: 100vh;
     display:flex;
     align-items: center;
@@ -9,7 +9,7 @@
     flex-direction: column;
 }
 .border{
-    background-color: #3e5c76;
+    background-color: #2a2d36;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -18,7 +18,7 @@
     flex-direction: column;
     border-radius: 50px;
 }
-.login-btn{
+.btn{
     justify-content: center;
     align-items: center;
     border-radius: 20px;
@@ -27,14 +27,5 @@
     height: 40px;
     font-weight: bold;
     font-size:20px;
-}
-.register-btn{
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    background-color:#E4D9FF;
-    width: 300px;
-    height: 40px;
-    font-weight: bold;
-    font-size:20px;
+    cursor:pointer;
 }
