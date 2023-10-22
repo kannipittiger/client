@@ -22,7 +22,8 @@
     background-color:#E4D9FF;
     width: 300px;
     height: 40px;
-    display: flex; /* เพิ่ม flexbox เพื่อจัดตรงกลางตามแนวตั้งและแนวนอน */
+    display: flex;
+    cursor:pointer;
 }
 #font-btn{
     align-self: center;
