@@ -1,28 +1,24 @@
 import './Mainstyle/HomeStyle.css';
-import React from 'react'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { AiFillHome } from "react-icons/ai";
-import {BsFillSearchHeartFill,BsFillCollectionFill,BsMusicNoteList} from "react-icons/bs";
+import React from 'react';
+import {BrowserRouter,Routes,Route,Switch} from 'react-router-dom';
+import Blank from './pagesHome/Blank';
+import Leftbox from './pagesHome/Lbox';
+import FakeHome from './pagesHome/fakeHome';
+import Search from './pagesHome/Search';
 
-
-export const Home = () => {
+export default function Home() {
     return(
-        <div className='allbox'>
-            <div className='leftbox'>
-                <div className='upbox'>
-                    <button className='btn1'><AiFillHome /> home</button>
-                    <button className='btn2'><BsFillSearchHeartFill /> search</button>
-                </div>
-                <div className='downbox'>
-                    <div className='textys'><BsFillCollectionFill style={{paddingRight:20}}/>Your songs</div>
-                    <div></div>
-                </div>
+        <BrowserRouter >
+            <div className='allbox'>
+                <Leftbox/>
+                <Routes>
+                    <Route index element={<Blank/>}/>
+                    <Route path="fakehome" element={<FakeHome/>}/>
+                    <Route path="search" element={<Search/>} />
+                </Routes>
             </div>
-            <div className='rightbox'>
-                <div className='textrp'><BsMusicNoteList size={40}style={{paddingRight:20}}/>Recently played</div>
-            </div>
-        </div>
+
+        </BrowserRouter>
     )
 }
 
-export default Home;
