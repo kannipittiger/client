@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import Home from './MainApp/HomeScreen';
 import reportWebVitals from './reportWebVitals';
+import Welcome from './welcome/welcome'
+import Login from './welcome/login'
+import Register from './welcome/register'
+import Banner from './MainApp/Banner'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

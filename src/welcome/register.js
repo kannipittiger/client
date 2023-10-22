@@ -1,6 +1,6 @@
 import './style/registerStyle.css'
 import { Link } from 'react-router-dom'
-export default function Register () {
+const Register = () => {
     return(
         <div className="register">
             <div className="border-register">
@@ -24,3 +24,4 @@ export default function Register () {
         </div>
     );
 }
+export default Register;
