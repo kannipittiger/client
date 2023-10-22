@@ -1,4 +1,5 @@
 import './style/welcomeStyle.css'
+import {Link} from 'react-router-dom'
 
 export default function Welcome(){
     return(
@@ -6,9 +7,11 @@ export default function Welcome(){
             <div className="border">
                 <h2>Welcome to Moodify</h2>
                 <br/>
-                <a href="/register">Sign up</a>
+                <nav>
+                <Link to="/register">Sign up</Link>
                 <br/>
-                <a href="/login">Log in</a>
+                <Link to="/login">Log in</Link>
+                </nav>
             </div>
         </div>
     );
