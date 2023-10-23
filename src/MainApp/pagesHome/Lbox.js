@@ -36,10 +36,10 @@ const Leftbox = () => {
                         <BsFillCollectionFill style={{paddingRight: 20}} size={70}/> 
                         <div style={{fontSize:30,fontWeight:'bold'}}>Your songs</div>
                     </div>
-                    
+                    <div className='scrollv'>
                     {song.map((val, key) => {
                         return (
-                            <div className='scrollv'>
+                            
                                 <div key={key}>
                                     <div className='songbox'>
                                         <img style={{width:'125px',height:'125px  ',alignItems:'center',marginTop:'5vh',borderRadius:'100%'}} src={val.image} />
@@ -47,13 +47,13 @@ const Leftbox = () => {
                                             <label className='songfont'>{val.title}</label>
                                             <label className='artistfont'>{val.artist}</label>
                                         </div>
-                                        
                                     </div>
                                 </div>
-                            </div>
+                           
                         );
                     })}
-                    </div>  
+                    </div>
+                </div>  
             </div>
         </div>
     );
