@@ -41,6 +41,30 @@ app.post('/create',(req,res) => {
     );
 });
 
+app.post('/login',(req,res) => {
+    const username = req.body.username;
+    const password = req.body.password;
+
+    db.query(
+        "SELECT * FROM users WHERE username = ? AND password = ?",
+        [username, password],
+        (err,result) => {
+            if(err){
+                console.log(err);
+                res.status(500).send("เกิดข้อผิดพลาดในการล็อกอิน");
+            }else{
+                if (result.length > 0) {
+                    // ล็อกอินสำเร็จ
+                    res.send("ล็อกอินสำเร็จ");
+                } else {
+                    // ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
+                    res.status(401).send("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+                }
+            }
+        }
+    );
+});
+
 app.listen('3001', () => {
     console.log('Server is ruuning...');
 }) 

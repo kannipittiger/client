@@ -23,6 +23,7 @@ const Register = () => {
             }])
 
         })
+        alert("Sign up success");
     }
     return (
         <div className="register">
