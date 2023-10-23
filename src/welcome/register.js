@@ -1,26 +1,91 @@
 import './style/registerStyle.css'
-import { Link } from 'react-router-dom'
+import Axios, { AxiosError } from 'axios';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 const Register = () => {
-    return(
+    const [userList, setUserList] = useState([]);
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const getUser = () => {
+        Axios.get('http://localhost:3001/users').then((response) => {
+            setUserList(response.data);
+        })
+    }
+
+    const addUser = () => {
+        Axios.post('http://localhost:3001/create',{
+            username: username,
+            email:email,
+            password:password
+        }).then(() => {
+            setUserList([            
+            ...userList,{
+                username:username,
+                email:email,
+                password:password
+            }])
+
+        })
+    }
+    return (
         <div className="register">
             <div className="border-register">
                 <h2>
-                    Sign up to Start<br/>Moodify
+                    Sign up to Start<br />Moodify
                 </h2>
                 <h5>
-                    Email address<br/>
-                    <input className="input-register" type="text" name="email" required></input>
-                    <br/>
-                    Username<br/>
-                    <input className="input-register" type="text" name="username" required></input>
-                    <br/>
-                    Password<br/>
-                    <input className="input-register" type="password" name="password" required></input>
+                    <form action="register" method='post'>
+                        <label for="email">Email address</label>
+                        <br />
+                        <input
+                            className="input-register"
+                            type="email" 
+                            name="email" 
+                            placeholder='Enter email' 
+                            onChange={(event) => { 
+                                setEmail(event.target.value) 
+                            }} 
+                            required>
+                        </input>
+                        <br />
+                        <label for="username">Username</label>
+                        <br />
+                        <input
+                            className="input-register" 
+                            type="text" 
+                            name="username" 
+                            placeholder='Enter username'
+                            onChange={(event) => { 
+                                setUsername(event.target.value) 
+                            }} 
+                            required></input>
+                        <br />
+                        <label for="password">Password</label>
+                        <br />
+                        <input
+                            className="input-register" 
+                            type="password" 
+                            name="password" 
+                            placeholder='Enter password'
+                            onChange={(event) => { 
+                                setPassword(event.target.value) 
+                            }} 
+                            required></input>
+                        <br /><br />
+                        <Link to="/"><button
+                             name="reg_user" 
+                             type="submit" 
+                             className="register-btn font-btn" 
+                             onClick={addUser}>
+                            Sign up
+                        </button></Link>
+                    </form>
                 </h5>
-                <nav>
-                <Link to="/"><button className="register-btn" id="font-btn">Sign up</button></Link>
-                </nav>
-                </div>
+
+            </div>
         </div>
     );
 }
