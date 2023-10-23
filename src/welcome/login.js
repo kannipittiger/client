@@ -1,5 +1,5 @@
 import './style/loginStyle.css'
-import {Link} from 'react-router-dom';
+import {Link, Outlet} from 'react-router-dom';
 const Login = () => {
     return(
         <div className="login">
@@ -13,9 +13,10 @@ const Login = () => {
                     Password<br/>
                     <input className="input-login" type="password" name="password" required></input>
                 </h5>
-                <button className="login-btn" id="font-btn">Log in</button>
-                <br/>
                 <nav>
+                <Link to="/home"><button className="login-btn" id="font-btn">Log in</button></Link>
+                <br/>
+                
                 <Link className="link" to="/recover">Forgot password</Link>
                 <p className="no-acc">Don't have an account?</p>
                 <Link className="link" to="/register">Sign up for Moodify</Link>

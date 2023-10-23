@@ -1,8 +1,9 @@
 import '../Mainstyle/HomeStyle.css'
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Routes,Route} from 'react-router-dom';
 import { AiFillHome } from "react-icons/ai";
 import {BsFillSearchHeartFill,BsFillCollectionFill,BsMusicNoteList} from "react-icons/bs";
+import Search from './Search'
 
 
 const Leftbox = () => {
@@ -11,7 +12,7 @@ const Leftbox = () => {
             <nav>
             <div className='upbox'>
                 
-                <Link to='/fakehome'><button className='btn1'><AiFillHome /> home</button></Link>
+                <Link to='/home'><button className='btn1'><AiFillHome /> home</button></Link>
                 <Link to='/search'><button className='btn2'><BsFillSearchHeartFill /> search</button></Link>
                 
             </div>
@@ -21,6 +22,6 @@ const Leftbox = () => {
                 <div></div>
             </div>
         </div>
-    )
+    );
 }
 export default Leftbox;

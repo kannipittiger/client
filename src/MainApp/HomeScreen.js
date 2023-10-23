@@ -8,17 +8,12 @@ import Search from './pagesHome/Search';
 
 export default function Home() {
     return(
-        <BrowserRouter >
+
             <div className='allbox'>
                 <Leftbox/>
-                <Routes>
-                    <Route index element={<Blank/>}/>
-                    <Route path="fakehome" element={<FakeHome/>}/>
-                    <Route path="search" element={<Search/>} />
-                </Routes>
+                <FakeHome/>
             </div>
 
-        </BrowserRouter>
     )
 }
 
