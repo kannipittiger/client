@@ -12,14 +12,17 @@ const Leftbox = () => {
             <nav>
             <div className='upbox'>
                 
-                <Link to='/home'><button className='btn1'><AiFillHome /> home</button></Link>
+                <Link to='/home'><button className='btn1'><AiFillHome/> home</button></Link>
                 <Link to='/search'><button className='btn2'><BsFillSearchHeartFill /> search</button></Link>
                 
             </div>
             </nav>
             <div className='downbox'>
-                <div className='textys'><BsFillCollectionFill style={{paddingRight:20}}/>Your songs</div>
-                <div></div>
+                <div className='downbox2'>
+                    <div className='textys'><BsFillCollectionFill style={{paddingRight:20}} size={60}/></div>
+                    <div className='textys'>Your songs</div>
+                </div>
+                
             </div>
         </div>
     );
