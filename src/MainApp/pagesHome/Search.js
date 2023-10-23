@@ -10,17 +10,19 @@ const Search = () => {
             <div className='rightbox'>
                 
                 <div className='textrp'>
-                    <div style={{paddingTop:10}}>
-                        <BsSearchHeart size={40}style={{paddingRight:20,paddingTop:0}}/>
+                    <div style={{paddingTop:3}}>
+                    <BsSearchHeart size={70}style={{paddingRight:20,paddingTop:0}}/>
                     </div>
                     <div>
                     <input className='searchinput'
-                            placeholder='what do you want to listen to ?'
+                            placeholder='search'
                             
                     >
                     </input>
                     </div>
-                    
+                    <button className='logoutbtn2'>
+                        log out
+                    </button>
                 </div>
                 
                 <div className='grid-container'>

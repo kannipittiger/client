@@ -95,16 +95,53 @@
 
 .searchinput{
     border-radius: 50px;
-    width: 450px;
-    height: 50px;
+    width: 250px;
+    height: 60px;
     background-color: #2a2d36;
     border-color: white;
     color:white;
     padding-left: 30px;
-    font-size: 30px;
+    font-size: 20px;
     
 }
 
 .searchinput::placeholder{
     padding-left: 0px;
+}
+
+.logoutbtn{
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color:#E4D9FF;
+    width: 150px;
+    height: 60px;
+    cursor:pointer;
+    margin-left: 400px;
+    font-size: 30px;
+}
+
+.logoutbtn2{
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color:#E4D9FF;
+    width: 150px;
+    height: 60px;
+    cursor:pointer;
+    margin-left: 400px;
+    font-size: 30px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #000;
+}
+
+.header2{
+    width: 10vw;
+    display: flex;
+    flex-direction: row-reverse;
+    border: 3px solid #000;
 }
