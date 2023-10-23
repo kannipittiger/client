@@ -77,9 +77,9 @@
 
 .grid-container {
     display: grid;
-    height: 86vh;
+    height: 100vh;
     grid-template-columns: auto auto auto;
-    column-gap: 10px;
+    column-gap: 1%;
     row-gap: 10px;
     padding: 10px;
     
@@ -121,7 +121,7 @@
     width: 150px;
     height: 60px;
     cursor:pointer;
-    margin-left: 45%;
+    margin-left: 60%;
     font-size: 30px;
 }
 
@@ -172,6 +172,7 @@
 }
 
 .artistbox{
+    color:white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -182,7 +183,7 @@
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;
-    height:58vh;
+    height:55vh;
     scrollbar-width: none;
 }
 .scrollv::-webkit-scrollbar {
@@ -190,7 +191,7 @@
 }
 .scrollvr{
     -ms-overflow-style: none;
-    overflow-x:scroll;
+    overflow-y:scroll;
     height:100vh;
     scrollbar-width: none;
 }

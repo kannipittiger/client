@@ -9,6 +9,5 @@ export default [
     artist: "CUCO",
     audioSrc: "https://audio.jukehost.co.uk/buM5vIGR3O63vrHHqSmcXaieadVRI3as",
     image: 'https://i.ibb.co/nCgB5FF/sddefault.jpg',
-    color: "#00aeb0"
   }
 ];
