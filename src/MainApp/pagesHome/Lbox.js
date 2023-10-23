@@ -32,20 +32,31 @@ const Leftbox = () => {
             </nav>
             <div className='downbox'>
                 <div className='textys'>
-                    <BsFillCollectionFill style={{paddingRight: 20}}/> Your songs
+                    <div className='downbox2'>
+                        <BsFillCollectionFill style={{paddingRight: 20}} size={60}/> 
+                        <div>Your songs</div>
+                    </div>
+                    
                     {song.map((val, key) => {
                         return (
-                        <div key={key}>
-                            <div>
-                                <img style={{width:'150px',height:'150px  ',alignItems:'center',marginTop:'5vh',borderRadius:'100%'}} src={val.image} />
-                                <br/>
-                                <label>Song: {val.title}</label>
-                                <br/>
-                                <label>Artist: {val.artist}</label>
-                                <br/>
+                            <div className='scrollv'>
+                                <div key={key}>
+                                    <div>
+                                        <img style={{width:'150px',height:'150px  ',alignItems:'center',marginTop:'5vh',borderRadius:'100%'}} src={val.image} />
+                                        <br/>
+                                        <label>Song: {val.title}</label>
+                                        <br/>
+                                        <label>Artist: {val.artist}</label>
+                                        <br/>
+                                        <img style={{width:'150px',height:'150px  ',alignItems:'center',marginTop:'5vh',borderRadius:'100%'}} src={val.image} />
+                                        <br/>
+                                        <label>Song: {val.title}</label>
+                                        <br/>
+                                        <label>Artist: {val.artist}</label>
+                                        <br/>
+                                    </div>
+                                </div>
                             </div>
-                            
-                        </div>
                         );
                     })}
                     </div>  
