@@ -156,7 +156,7 @@
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;
-    height:400px;
+    height:58vh;
     scrollbar-width: none;
 }
 .scrollv::-webkit-scrollbar {
