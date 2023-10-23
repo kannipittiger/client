@@ -153,6 +153,28 @@
     align-items: center;
 }
 
+.songfont{
+    font-size: 30px;
+}
+
+.songbox{
+    display: flex;
+    flex-direction: row;
+    margin-left: 3%;
+}
+
+.artistfont{
+    font-size: 20px;
+}
+
+.artistbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 6%;
+}
+
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;

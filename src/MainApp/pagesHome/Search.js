@@ -21,7 +21,7 @@ const Search = () => {
                     </input>
                     </div>
                     <button className='logoutbtn2'>
-                        log out
+                        logout
                     </button>
                 </div>
                 

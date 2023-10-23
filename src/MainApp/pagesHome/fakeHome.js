@@ -13,7 +13,7 @@ const FakeHome = () => {
                         <text>Recently played</text>
                     </div>
                     <button className='logoutbtn'>
-                        log out
+                        logout
                     </button>
                 </div>
                     
