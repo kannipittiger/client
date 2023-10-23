@@ -71,6 +71,8 @@
     text-align: left;
     padding-top: 20px;
     margin-left: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
 .grid-container {
@@ -89,4 +91,20 @@
     font-size: 30px;
     text-align: center;
     border-radius: 20px;
+}
+
+.searchinput{
+    border-radius: 50px;
+    width: 450px;
+    height: 50px;
+    background-color: #2a2d36;
+    border-color: white;
+    color:white;
+    padding-left: 30px;
+    font-size: 30px;
+    
+}
+
+.searchinput::placeholder{
+    padding-left: 0px;
 }

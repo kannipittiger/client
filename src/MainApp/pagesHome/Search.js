@@ -9,7 +9,19 @@ const Search = () => {
             <Leftbox/>
             <div className='rightbox'>
                 
-                <div className='textrp'><BsSearchHeart size={40}style={{paddingRight:20}}/>Search</div>
+                <div className='textrp'>
+                    <div style={{paddingTop:10}}>
+                        <BsSearchHeart size={40}style={{paddingRight:20,paddingTop:0}}/>
+                    </div>
+                    <div>
+                    <input className='searchinput'
+                            placeholder='what do you want to listen to ?'
+                            
+                    >
+                    </input>
+                    </div>
+                    
+                </div>
                 
                 <div className='grid-container'>
                     <div className='grid-item'>1</div>
