@@ -82,6 +82,7 @@
     column-gap: 10px;
     row-gap: 10px;
     padding: 10px;
+    
 }
 
 .grid-item {
@@ -91,6 +92,9 @@
     font-size: 30px;
     text-align: center;
     border-radius: 20px;
+    height: 60vh;
+    width: 20vw;
+    
 }
 
 .searchinput{
@@ -183,5 +187,11 @@
 }
 .scrollv::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
+}
+.scrollvr{
+    -ms-overflow-style: none;
+    overflow-x:scroll;
+    height:100vh;
+    scrollbar-width: none;
 }
 

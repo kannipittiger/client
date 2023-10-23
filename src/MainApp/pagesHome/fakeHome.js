@@ -6,7 +6,7 @@ import {BsFillSearchHeartFill,BsFillCollectionFill,BsMusicNoteList} from "react-
 
 const FakeHome = () => {
     const [song,setSong] = useState([]);
-    const getSongs = () => {
+    const getSong1 = () => {
         axios.get('http://10.64.57.141:3001/songs/1').then((response) => {
             setSong(response.data);
             console.log("Songs:", response.data);
@@ -15,10 +15,10 @@ const FakeHome = () => {
         })
     }
     useEffect(() => {
-        getSongs();
+        getSong1();
     }, []);
     return(
-        <div className='rightbox'>
+        <div className='rightbox scrollvr'>
                 <div className='textrp'>
                     <div style={{paddingTop:0}}>
                     <BsMusicNoteList size={60}style={{paddingRight:20}}/>
@@ -41,19 +41,72 @@ const FakeHome = () => {
                                 alt={`Song: ${song.title}`}
                             />
                             <br />
-                            <label>Song: {song.title}</label>
-                            <br />
-                            <label>Artist: {song.artist}</label>
-                            <br />
+                            <div className='artistbox'> 
+                                <label>Song: {song.title}</label>
+                                <br />
+                                <label>Artist: {song.artist}</label>
+                                <br />
+                            </div>
                         </div>
                     )}
                 </div>
-                <div className='grid-item'>2</div>
-                <div className='grid-item'>3</div>
-                <div className='grid-item'>4</div>
-                <div className='grid-item'>5</div>
-                <div className='grid-item'>6</div>
+                <div className='grid-item'>
+                    {song && (
+                        <div>
+                            <img
+                                style={{ width: '150px', height: '150px', alignItems: 'center', marginTop: '5vh', borderRadius: '100%' }}
+                                src={song.image}
+                                alt={`Song: ${song.title}`}
+                            />
+                            <br />
+                            <div className='artistbox'> 
+                                <label>Song: {song.title}</label>
+                                <br />
+                                <label>Artist: {song.artist}</label>
+                                <br />
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className='grid-item'>
+                    {song && (
+                        <div>
+                            <img
+                                style={{ width: '150px', height: '150px', alignItems: 'center', marginTop: '5vh', borderRadius: '100%' }}
+                                src={song.image}
+                                alt={`Song: ${song.title}`}
+                            />
+                            <br />
+                            <div className='artistbox'> 
+                                <label>Song: {song.title}</label>
+                                <br />
+                                <label>Artist: {song.artist}</label>
+                                <br />
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className='grid-item'>
+                    {song && (
+                        <div>
+                            <img
+                                style={{ width: '150px', height: '150px', alignItems: 'center', marginTop: '5vh', borderRadius: '100%' }}
+                                src={song.image}
+                                alt={`Song: ${song.title}`}
+                            />
+                            <br />
+                            <div className='artistbox'> 
+                                <label>Song: {song.title}</label>
+                                <br />
+                                <label>Artist: {song.artist}</label>
+                                <br />
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
+            
+            
         </div>
             
     )
