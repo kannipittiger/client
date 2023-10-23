@@ -1,32 +1,91 @@
 import './style/registerStyle.css'
+import Axios, { AxiosError } from 'axios';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
+    const [userList, setUserList] = useState([]);
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-    return(
+    const getUser = () => {
+        Axios.get('http://localhost:3001/users').then((response) => {
+            setUserList(response.data);
+        })
+    }
+
+    const addUser = () => {
+        Axios.post('http://localhost:3001/create',{
+            username: username,
+            email:email,
+            password:password
+        }).then(() => {
+            setUserList([            
+            ...userList,{
+                username:username,
+                email:email,
+                password:password
+            }])
+
+        })
+    }
+    return (
         <div className="register">
             <div className="border-register">
                 <h2>
-                    Sign up to Start<br/>Moodify
+                    Sign up to Start<br />Moodify
                 </h2>
                 <h5>
-                    <form method="post" action="register_db.php">
+                    <form action="register" method='post'>
                         <label for="email">Email address</label>
-                        <br/>
-                        <input className="input-register" type="email" name="email" placeholder='Enter email' required></input>
-                        <br/>
+                        <br />
+                        <input
+                            className="input-register"
+                            type="email" 
+                            name="email" 
+                            placeholder='Enter email' 
+                            onChange={(event) => { 
+                                setEmail(event.target.value) 
+                            }} 
+                            required>
+                        </input>
+                        <br />
                         <label for="username">Username</label>
-                        <br/>
-                        <input className="input-register" type="text" name="username" placeholder='Enter username' required></input>
-                        <br/>
+                        <br />
+                        <input
+                            className="input-register" 
+                            type="text" 
+                            name="username" 
+                            placeholder='Enter username'
+                            onChange={(event) => { 
+                                setUsername(event.target.value) 
+                            }} 
+                            required></input>
+                        <br />
                         <label for="password">Password</label>
-                        <br/>
-                        <input className="input-register" type="password" name="password" placeholder='Enter password' required></input>
-                        <br/><br/>
-                        <button name="reg_user" type="submit" className="register-btn font-btn">Sign up</button>
+                        <br />
+                        <input
+                            className="input-register" 
+                            type="password" 
+                            name="password" 
+                            placeholder='Enter password'
+                            onChange={(event) => { 
+                                setPassword(event.target.value) 
+                            }} 
+                            required></input>
+                        <br /><br />
+                        <Link to="/"><button
+                             name="reg_user" 
+                             type="submit" 
+                             className="register-btn font-btn" 
+                             onClick={addUser}>
+                            Sign up
+                        </button></Link>
                     </form>
                 </h5>
-                
-                </div>
+
+            </div>
         </div>
     );
 }
