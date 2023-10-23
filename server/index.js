@@ -15,7 +15,7 @@ const db = mysql.createConnection({
 })
 
 app.get('/users',(req,res) => {
-    db.query("SELECT * FROM users ", (err,result) => {
+    db.query("SELECT * FROM songs ", (err,result) => {
         if(err){
             console.log(err);
         }else{
@@ -29,7 +29,7 @@ app.post('/create',(req,res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    db.query("INSERT INTO users (username,email,password) VALUES(?,?,?)",
+    db.query("INSERT INTO users (username,email,password) VALUES (?,?,?)",
         [username,email,password],
         (err,result) => {
             if(err){
@@ -60,6 +60,17 @@ app.post('/login',(req,res) => {
                     // ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
                     res.status(401).send("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
                 }
+            }
+        }
+    );
+    db.query(
+        "INSERT INTO songs (username) VALUES (?)",
+        [username],
+        (err,result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send("Welcome back");
             }
         }
     );
