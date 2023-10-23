@@ -5,10 +5,10 @@ import cali from "./assets/Mac Miller - Self Care.mp3";
 // All of these artists are at https://pixabay.com/music/search/mood/laid%20back/
 export default [
   {
-    title: "Cali",
-    artist: "Wataboi",
+    title: "Lavalamp",
+    artist: "CUCO",
     audioSrc: "https://audio.jukehost.co.uk/buM5vIGR3O63vrHHqSmcXaieadVRI3as",
-    image: '',
+    image: 'https://i.ibb.co/nCgB5FF/sddefault.jpg',
     color: "#00aeb0"
   }
 ];
