@@ -21,13 +21,13 @@
 }
 .upbox{
     background-color: white;
-    height:28.5%;
+    height:28.5vh;
     border-radius: 10px;
 }
 .downbox{
     background-color: #30343F;
     color: #E4D9FF;
-    height: 70%;
+    height: 70vh;
     margin-top: 2%;
     border-radius: 10px;
 }
