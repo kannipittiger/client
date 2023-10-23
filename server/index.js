@@ -24,6 +24,21 @@ app.get('/users',(req,res) => {
     });
 });
 
+app.get('/songs/:songID', (req, res) => {
+    const songID = req.params.songID; // Get the s  ong ID from the URL
+    db.query("SELECT * FROM songs WHERE songID = ?", [songID], (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
+      } else if (result.length === 0) {
+        res.status(404).json({ error: 'Song not found' });
+      } else {
+        res.status(200).json(result[0]);
+      }
+    });
+  });
+  
+
 app.post('/create',(req,res) => {
     const username = req.body.username;
     const email = req.body.email;
