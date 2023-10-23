@@ -21,7 +21,7 @@
 }
 .upbox{
     background-color: white;
-    height:28.5vh;
+    height:28.5%;
     border-radius: 10px;
 }
 .downbox{
@@ -30,7 +30,6 @@
     height: 70%;
     margin-top: 2%;
     border-radius: 10px;
-    
 }
 .btn1{  
     justify-content: start;
