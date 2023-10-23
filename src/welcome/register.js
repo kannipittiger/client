@@ -9,12 +9,6 @@ const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const getUser = () => {
-        Axios.get('http://localhost:3001/users').then((response) => {
-            setUserList(response.data);
-        })
-    }
-
     const addUser = () => {
         Axios.post('http://localhost:3001/create',{
             username: username,
