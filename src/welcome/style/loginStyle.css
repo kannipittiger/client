@@ -25,6 +25,7 @@
     height: 40px;
     display: flex;
     cursor:pointer;
+    font-weight: bold;
 }
 #font-btn{
     align-self: center;

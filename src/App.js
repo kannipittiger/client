@@ -5,7 +5,7 @@ import Login from './welcome/login';
 import Home from './MainApp/HomeScreen';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Search from './MainApp/pagesHome/Search';
-import AudioPlay from './Audio/AudioPlay';
+import AudioPlayer from './Audio/AudioPlay';
 import tracks from './Audio/tracks';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="login" element={<Login/>}/>
         <Route path="home" element={<Home/>}/>
         <Route path="search" element={<Search/>}/>
-        <Route path="audioplay" element={<AudioPlay  tracks={tracks}/>}/>
+        <Route path="/audioplayer/:id" element={<AudioPlayer/>}/>
       </Routes>
     </BrowserRouter>
   );

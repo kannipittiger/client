@@ -14,7 +14,7 @@ const db = mysql.createConnection({
     database:"moodify"
 })
 
-app.get('/users',(req,res) => {
+app.get('/songs',(req,res) => {
     db.query("SELECT * FROM songs ", (err,result) => {
         if(err){
             console.log(err);

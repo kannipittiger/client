@@ -9,34 +9,28 @@ const FakeHome = () => {
     const [song1,setSong1] = useState([]);
     const [song2,setSong2] = useState([]);
     const [song3,setSong3] = useState([]);
-    const getSong1 = () => {
-        axios.get('http://10.64.57.141:3001/songs/1').then((response) => {
-            setSong1(response.data);
-            console.log("Songs:", response.data);
-        }).catch((error) => {
-            console.error('Error fetching songs',error);
-        })
-    }
-    const getSong2 = () => {
-        axios.get('http://10.64.57.141:3001/songs/2').then((response) => {
-            setSong2(response.data);
-            console.log("Songs:", response.data);
-        }).catch((error) => {
-            console.error('Error fetching songs',error);
-        })
-    }
-    const getSong3 = () => {
-        axios.get('http://10.64.57.141:3001/songs/3').then((response) => {
-            setSong3(response.data);
-            console.log("Songs:", response.data);
+    const getSong = (songID) => {
+        axios.get(`http://10.64.59.189:3001/songs/${songID}`).then((response) => {
+            if(songID === 1){
+                setSong1(response.data);
+                console.log("Songs:", response.data);                
+            }
+            else if(songID === 2){
+                setSong2(response.data);
+                console.log("Songs:", response.data);               
+            }
+            else if(songID === 3){
+                setSong3(response.data);
+                console.log("Songs:", response.data);      
+            }
         }).catch((error) => {
             console.error('Error fetching songs',error);
         })
     }
     useEffect(() => {
-        getSong1();
-        getSong2();
-        getSong3();
+        getSong(1);
+        getSong(2);
+        getSong(3);
     }, []);
     return(
         <div className='rightbox scrollvr'>
@@ -53,7 +47,7 @@ const FakeHome = () => {
                 </div>
                     
             <div className='grid-container '>
-                <Link to="/audioplay"><div className='grid-item'>
+                <Link to='/audioplayer/1'><div className='grid-item'>
                     {song1 && (
                         <div>
                             <img
@@ -71,7 +65,7 @@ const FakeHome = () => {
                         </div>
                     )}
                 </div></Link>
-                <div className='grid-item'>
+                <Link to='/audioplayer/2'><div className='grid-item'>
                     {song2 && (
                         <div>
                             <img
@@ -88,8 +82,8 @@ const FakeHome = () => {
                             </div>
                         </div>
                     )}
-                </div>
-                <div className='grid-item'>
+                </div></Link>
+                <Link to='/audioplayer/3'><div className='grid-item'>
                     {song3 && (
                         <div>
                             <img
@@ -106,7 +100,7 @@ const FakeHome = () => {
                             </div>
                         </div>
                     )}
-                    </div>
+                </div></Link>
             </div>
             
             
