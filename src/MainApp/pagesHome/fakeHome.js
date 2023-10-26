@@ -1,112 +1,94 @@
-import '../Mainstyle/HomeStyle.css'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useState,useEffect } from 'react';
-import {BsFillSearchHeartFill,BsFillCollectionFill,BsMusicNoteList} from "react-icons/bs";
+import { BsMusicNoteList, BsFillHeartFill, BsHeart} from 'react-icons/bs';
 
 const FakeHome = () => {
-    const [song1,setSong1] = useState([]);
-    const [song2,setSong2] = useState([]);
-    const [song3,setSong3] = useState([]);
-    const getSong = (songID) => {
-        axios.get(`http://10.64.59.189:3001/songs/${songID}`).then((response) => {
-            if(songID === 1){
-                setSong1(response.data);
-                console.log("Songs:", response.data);                
-            }
-            else if(songID === 2){
-                setSong2(response.data);
-                console.log("Songs:", response.data);               
-            }
-            else if(songID === 3){
-                setSong3(response.data);
-                console.log("Songs:", response.data);      
-            }
-        }).catch((error) => {
-            console.error('Error fetching songs',error);
-        })
-    }
+    const [song, setSong] = useState([]);
+    const [isHeartFilled, setIsHeartFilled] = useState(Array(song.length).fill(false));
+
+    const getSong = () => {
+        axios
+            .get(`http://localhost:3001/songs/`)
+            .then((response) => {
+                setSong(response.data);
+                setIsHeartFilled(Array(response.data.length).fill(false));
+            })
+            .catch((error) => {
+                console.error('Error fetching songs', error);
+            });
+    };
+
     useEffect(() => {
-        getSong(1);
-        getSong(2);
-        getSong(3);
+        getSong();
     }, []);
-    return(
-        <div className='rightbox scrollvr'>
-                <div className='textrp'>
-                    <div style={{paddingTop:0}}>
-                    <BsMusicNoteList size={60}style={{paddingRight:20}}/>
-                    </div>
-                    <div >
-                        <text>Hot hit</text>
-                    </div>
-                    <button className='logoutbtn'>
-                        logout
-                    </button>
+
+    // Function to toggle the heart icon
+    const toggleHeartIcon = (index) => {
+        const newHeartFilled = [...isHeartFilled];
+        newHeartFilled[index] = !newHeartFilled[index];
+        setIsHeartFilled(newHeartFilled);
+    };
+
+    return (
+        <div className="rightbox scrollvr">
+            <div className="textrp">
+                <div style={{ paddingTop: 0 }}>
+                    <BsMusicNoteList size={60} style={{ paddingRight: 20 }} />
                 </div>
-                    
-            <div className='grid-container '>
-                <Link to='/audioplayer/1'><div className='grid-item'>
-                    {song1 && (
-                        <div>
-                            <img
-                                style={{ width: '150px', height: '150px', alignItems: 'center', marginTop: '5vh', borderRadius: '100%' }}
-                                src={song1.image}
-                                alt={`Song: ${song1.title}`}
-                            />
-                            <br />
-                            <div className='artistbox'> 
-                                <label>Song: {song1.title}</label>
-                                <br />
-                                <label>Artist: {song1.artist}</label>
-                                <br />
-                            </div>
-                        </div>
-                    )}
-                </div></Link>
-                <Link to='/audioplayer/2'><div className='grid-item'>
-                    {song2 && (
-                        <div>
-                            <img
-                                style={{ width: '150px', height: '150px', alignItems: 'center', marginTop: '5vh', borderRadius: '100%' }}
-                                src={song2.image}
-                                alt={`Song: ${song2.title}`}
-                            />
-                            <br />
-                            <div className='artistbox'> 
-                                <label>Song: {song2.title}</label>
-                                <br />
-                                <label>Artist: {song2.artist}</label>
-                                <br />
-                            </div>
-                        </div>
-                    )}
-                </div></Link>
-                <Link to='/audioplayer/3'><div className='grid-item'>
-                    {song3 && (
-                        <div>
-                            <img
-                                style={{ width: '150px', height: '150px', alignItems: 'center', marginTop: '5vh', borderRadius: '100%' }}
-                                src={song3.image}
-                                alt={`Song: ${song3.title}`}
-                            />
-                            <br />
-                            <div className='artistbox'> 
-                                <label>Song: {song3.title}</label>
-                                <br />
-                                <label>Artist: {song3.artist}</label>
-                                <br />
-                            </div>
-                        </div>
-                    )}
-                </div></Link>
+                <div>
+                    <span>Hot hit</span>
+                </div>
+                <button className="logoutbtn">Logout</button>
             </div>
-            
-            
+
+            <div className="grid-container">
+                {song.map((songData, index) => (
+                    <div className="grid-item" key={songData.songID}>
+                        <Link to={`/audioplayer/${songData.songID}`}>
+                            <div>
+                                <div>
+                                    <img
+                                        style={{
+                                            width: '150px',
+                                            height: '150px',
+                                            alignItems: 'center',
+                                            marginTop: '5vh',
+                                            borderRadius: '100%',
+                                        }}
+                                        src={songData.image}
+                                        alt={`Song: ${songData.title}`}
+                                    />
+                                    <br />
+                                    <div className="artistbox">
+                                        <label>Song: {songData.title}</label>
+                                        <br />
+                                        <label>Artist: {songData.artist}</label>
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                        <button onClick={() => toggleHeartIcon(index)}>
+                            {isHeartFilled[index] ? (
+                                <BsFillHeartFill
+                                    color="red" // You can change the color for filled heart
+                                    size={50}
+                                    style={{ marginLeft: '190px', paddingBottom: 10 }}
+                                />
+                            ) : (
+                                <BsHeart
+                                    color="white" // You can change the color for empty heart
+                                    size={50}
+                                    style={{ marginLeft: '190px', paddingBottom: 10 }}
+                                />
+                            )}
+                        </button>
+                    </div>
+                ))}
+            </div>
         </div>
-            
-    )
-}
+    );
+};
 
 export default FakeHome;

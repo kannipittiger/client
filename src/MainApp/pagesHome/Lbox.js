@@ -10,7 +10,7 @@ import axios from 'axios';
 const Leftbox = () => {
     const [song,setSong] = useState([]);
     const getSongs = () => {
-        axios.get('http://10.64.59.189:3001/users').then((response) => {
+        axios.get('http://localhost:3001/songs').then((response) => {
             setSong(response.data);
             console.log("Songs:", response.data);
         }).catch((error) => {
@@ -39,7 +39,6 @@ const Leftbox = () => {
                     <div className='scrollv'>
                     {song.map((val, key) => {
                         return (
-                            
                                 <div key={key}>
                                     <div className='songbox'>
                                         <img style={{width:'125px',height:'125px  ',alignItems:'center',marginTop:'5vh',borderRadius:'100%'}} src={val.image} />

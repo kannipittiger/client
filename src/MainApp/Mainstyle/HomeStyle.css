@@ -89,12 +89,12 @@
     background-color: #273469;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
     border-radius: 20px;
-    height: 60vh;
+    height: 55vh;
     width: 20vw;
-    
+    font-weight: bold;
 }
 
 .searchinput{
@@ -195,4 +195,3 @@
     height:100vh;
     scrollbar-width: none;
 }
-

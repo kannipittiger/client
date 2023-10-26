@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import AudioControls from "./AudioControl";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 import "./assets/styles.css";
 
@@ -10,19 +12,47 @@ import Banner from "../MainApp/Banner";
  * Read the blog post here:
  * https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks
  */
-const AudioPlayer = ({ tracks }) => {
+const AudioPlayer = ({ }) => {
   // State
-  const [trackIndex, setTrackIndex] = useState(0);
+  //const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [currentSong,setCurrentSong] = useState([]);
+  let { id } = useParams();
+  const [song,setSong] = useState([]);
+  //const selectedSong = allSong[id];
 
+  
+  const getSong = () => {
+    axios.get(`http://localhost:3001/songs`).then((response) => {
+        setSong([...song, response.data]);
+        console.log("Songs:", response.data);                
+  
+    }).catch((error) => {
+        console.error('Error fetching songs',error);
+    })
+  }
+  const getCurrentSong = (ID) => {
+    axios.get(`http://localhost:3001/songs/${ID}`).then((response) => {
+        setCurrentSong(response.data);
+        console.log("Songs:", response.data);                
+  
+    }).catch((error) => {
+        console.error('Error fetching songs',error);
+    })
+  }
   // Destructure for conciseness
-  const { title, artist, color, image, audioSrc } = tracks[trackIndex];
-
+  useEffect(() => {
+    getSong(); 
+    getCurrentSong(id);
+  }, [id]);
+  
+  // const { songID, title, artist, song, image, background } = allSong[trackIndex];
   // Refs
-  const audioRef = useRef(new Audio(audioSrc));
+  const audioRef = useRef(new Audio(currentSong.song));
   const intervalRef = useRef();
   const isReady = useRef(false);
+
 
   // Destructure for conciseness
   const { duration } = audioRef.current;
@@ -63,18 +93,18 @@ const AudioPlayer = ({ tracks }) => {
   };
 
   const toPrevTrack = () => {
-    if (trackIndex - 1 < 0) {
-      setTrackIndex(tracks.length - 1);
+    if (song - 1 < 0) {
+      setSong(currentSong.length - 1);
     } else {
-      setTrackIndex(trackIndex - 1);
+      setSong(song - 1);
     }
   };
 
   const toNextTrack = () => {
-    if (trackIndex < tracks.length - 1) {
-      setTrackIndex(trackIndex + 1);
+    if (song < currentSong.length - 1) {
+      setSong(song + 1);
     } else {
-      setTrackIndex(0);
+      setSong(0);
     }
   };
 
@@ -91,7 +121,7 @@ const AudioPlayer = ({ tracks }) => {
   useEffect(() => {
     audioRef.current.pause();
 
-    audioRef.current = new Audio(audioSrc);
+    audioRef.current = new Audio(currentSong.song);
     setTrackProgress(audioRef.current.currentTime);
 
     if (isReady.current) {
@@ -102,7 +132,7 @@ const AudioPlayer = ({ tracks }) => {
       // Set the isReady ref as true for the next pass
       isReady.current = true;
     }
-  }, [trackIndex]);
+  }, [song]);
 
   useEffect(() => {
     // Pause and clean up on unmount
@@ -115,13 +145,13 @@ const AudioPlayer = ({ tracks }) => {
   return (
     <div className="audio-player">
       <div className="track-info">
+        
         <img
           className="artwork"
-          src={image}
-          alt={`track artwork for ${title} by ${artist}`}
+          src={currentSong.image}
         />
-        <h2 className="title">{title}</h2>
-        <h3 className="artist">{artist}</h3>
+        <h2 className="title">{currentSong.title}</h2>
+        <h3 className="artist">{currentSong.artist}</h3>
         <AudioControls
           isPlaying={isPlaying}
           onPrevClick={toPrevTrack}
@@ -145,5 +175,4 @@ const AudioPlayer = ({ tracks }) => {
     </div>
   );
 };
-
 export default AudioPlayer;

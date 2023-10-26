@@ -8,8 +8,13 @@ import Search from './MainApp/pagesHome/Search';
 import AudioPlayer from './Audio/AudioPlay';
 import tracks from './Audio/tracks';
 
+
 function App() {
+  useEffect(() => {
+    getSong(); 
+  }, []);
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route index element={<Welcome/>}/>
@@ -17,7 +22,7 @@ function App() {
         <Route path="login" element={<Login/>}/>
         <Route path="home" element={<Home/>}/>
         <Route path="search" element={<Search/>}/>
-        <Route path="/audioplayer/:id" element={<AudioPlayer/>}/>
+        <Route path="/audioplayer/:id" element={<AudioPlayer />}/>
       </Routes>
     </BrowserRouter>
   );
