@@ -10,7 +10,7 @@ const Login = () => {
 
 
   const loginUser = () => {
-    Axios.post('http://localhost:3001/login', {
+    Axios.post('http://10.64.58.227:3001/login', {
       username: username,
       password: password,
     })

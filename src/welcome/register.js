@@ -10,7 +10,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
 
     const addUser = () => {
-        Axios.post('http://localhost:3001/create',{
+        Axios.post('http://10.64.58.227:3001/create',{
             username: username,
             email:email,
             password:password

@@ -10,7 +10,7 @@ import axios from 'axios';
 const Leftbox = () => {
     const [song,setSong] = useState([]);
     const getSongs = () => {
-        axios.get('http://localhost:3001/songs').then((response) => {
+        axios.get('http://10.64.58.227:3001/songs').then((response) => {
             setSong(response.data);
             console.log("Songs:", response.data);
         }).catch((error) => {

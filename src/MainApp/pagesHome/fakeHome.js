@@ -9,7 +9,7 @@ const FakeHome = () => {
 
     const getSong = () => {
         axios
-            .get(`http://localhost:3001/songs/`)
+            .get(`http://10.64.58.227:3001/songs/`)
             .then((response) => {
                 setSong(response.data);
                 setIsHeartFilled(Array(response.data.length).fill(false));

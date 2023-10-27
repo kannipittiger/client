@@ -24,7 +24,7 @@ const AudioPlayer = ({ }) => {
 
   
   const getSong = () => {
-    axios.get(`http://localhost:3001/songs`).then((response) => {
+    axios.get(`http://10.64.58.227:3001/songs`).then((response) => {
         setSong([...song, response.data]);
         console.log("Songs:", response.data);                
   
@@ -33,7 +33,7 @@ const AudioPlayer = ({ }) => {
     })
   }
   const getCurrentSong = (ID) => {
-    axios.get(`http://localhost:3001/songs/${ID}`).then((response) => {
+    axios.get(`http://10.64.58.227:3001/songs/${ID}`).then((response) => {
         setCurrentSong(response.data);
         console.log("Songs:", response.data);                
   
