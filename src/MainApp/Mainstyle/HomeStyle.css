@@ -133,8 +133,21 @@
     width: 150px;
     height: 60px;
     cursor:pointer;
-    margin-left: 47%;
+    margin-left:45%;
     font-size: 30px;
+    margin-top: 1%;
+}
+.searchbtn{
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color:#E4D9FF;
+    width: 150px;
+    height: 60px;
+    cursor:pointer;
+    font-size: 30px;
+    margin-left: 2%;
+    margin-top: 1%;
 }
 
 .header{
