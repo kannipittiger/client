@@ -23,6 +23,12 @@ const FakeHome = () => {
         getSong();
     }, []);
 
+    // Function to toggle the heart icon
+    const toggleHeartIcon = (index) => {
+        const newHeartFilled = [...isHeartFilled];
+        newHeartFilled[index] = !newHeartFilled[index];
+        setIsHeartFilled(newHeartFilled);
+    };
 
     return (
         <div className="rightbox scrollvr">
@@ -31,7 +37,7 @@ const FakeHome = () => {
                     <BsMusicNoteList size={60} style={{ paddingRight: 20 }} />
                 </div>
                 <div>
-                    <span>Hot hit</span>
+                    <span>Home</span>
                 </div>
                 <button className="logoutbtn">Logout</button>
             </div>
@@ -39,8 +45,8 @@ const FakeHome = () => {
             <div className="grid-container">
                 
                 {song.map((songData, index) => (
-                    <Link to={`/audioplayer/${songData.songID}`}>
                     <div className="grid-item" key={songData.songID}>
+                        <Link to={`/audioplayer/${songData.songID}`}>
                             <div>
                                 <div>
                                     <img
@@ -63,8 +69,23 @@ const FakeHome = () => {
                                     </div>
                                 </div>
                             </div>
-                        
-                    </div></Link>
+                        </Link>
+                        <button onClick={() => toggleHeartIcon(index)}>
+                            {isHeartFilled[index] ? (
+                                <BsFillHeartFill
+                                    color="red" // You can change the color for filled heart
+                                    size={50}
+                                    style={{ marginLeft: '190px', paddingBottom: 10 }}
+                                />
+                            ) : (
+                                <BsHeart
+                                    color="white" // You can change the color for empty heart
+                                    size={50}
+                                    style={{ marginLeft: '190px', paddingBottom: 10 }}
+                                />
+                            )}
+                        </button>
+                    </div>
                 ))}
             </div>
         </div>

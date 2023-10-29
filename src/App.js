@@ -6,6 +6,7 @@ import Home from './MainApp/HomeScreen';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Search from './MainApp/pagesHome/Search';
 import AudioPlayer from './Audio/AudioPlay';
+import tracks from './Audio/tracks';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="home" element={<Home/>}/>
         <Route path="search" element={<Search/>}/>
         <Route path="/audioplayer/:id" element={<AudioPlayer />}/>
+        <Route path ="/lbox/:id" element={<Lbox/>}/>
       </Routes>
     </BrowserRouter>
   );
