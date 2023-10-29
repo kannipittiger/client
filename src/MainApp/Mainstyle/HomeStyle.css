@@ -183,7 +183,7 @@
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;
-    height:35vh;
+    height:55vh;
     scrollbar-width: none;
 }
 .scrollv::-webkit-scrollbar {
@@ -194,4 +194,53 @@
     overflow-y:scroll;
     height:100vh;
     scrollbar-width: none;
+}
+.scrollvr::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+.song-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 5vh;
+}
+#progress{
+    -webkit-appearance: none;
+    width: 60%;
+    height: 6px;
+    background: #ffd6ff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 40px 0;
+}
+#progress::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: #9f86c0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 5px solid #5e548e;
+}
+.control{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.control div{
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    background: white;
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #9f86c0;
+}
+
+.control div :nth-child(2){
+    transform: scale(1.5);
+    background: #9f86c0;
+    color: white;
 }
