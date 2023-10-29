@@ -9,6 +9,14 @@ const Search = () => {
     const [song, setSong] = useState([]);
     const [search,setSearch] = useState("");
 
+    const shuffleArray = (array)  => {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    }
     const getSong = () => {
         axios
             .get(`http://10.64.58.227:3001/songs/`)
@@ -51,7 +59,7 @@ const Search = () => {
                 </div>
                 
                 <div className="grid-container">
-                {song.filter((song) => {
+                {shuffleArray(song).filter((song) => {
                     if(search === ""){
                         return song;
                     }else if (song.title.toLowerCase().includes(search.toLowerCase())){
