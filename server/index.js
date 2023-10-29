@@ -71,9 +71,6 @@ app.post('/login',(req,res) => {
                 if (result.length > 0) {
                     // ล็อกอินสำเร็จ
                     res.send("ล็อกอินสำเร็จ");
-                    db.query("INSERT INTO usersong (username) VALUES (?)",
-                        [username]
-                    )
                 } else {
                     // ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
                     res.status(401).send("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
@@ -83,29 +80,6 @@ app.post('/login',(req,res) => {
     );
 });
 
-app.post('/addsong/:username',(req,res) => {
-    const username = req.body.username;
-    db.query("SELECT * FROM users WHERE username = ?",
-        [username],(err,result) => {
-            if(err){
-                console.log(err);
-            }else{
-                res.send("Welcome back");
-                db.query(
-                    "INSERT INTO usersong WHERE username = ?",
-                    [username],
-                    (err,result) => {
-                        if(err){
-                            console.log(err);
-                        }else{
-                            res.send("song added");
-                        }
-                    }
-                );
-            }
-        }
-    );
-})
 
 app.listen('3001', () => {
     console.log('Server is ruuning...');

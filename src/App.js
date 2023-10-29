@@ -6,7 +6,7 @@ import Home from './MainApp/HomeScreen';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 import Search from './MainApp/pagesHome/Search';
 import AudioPlayer from './Audio/AudioPlay';
-import tracks from './Audio/tracks';
+import Lbox from './MainApp/pagesHome/Lbox';
 
 
 function App() {
