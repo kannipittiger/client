@@ -33,7 +33,7 @@ const Register = () => {
                 </h2>
                 <h5>
                     <form action="register" method='post'>
-                        <label for="email">Email address</label>
+                        <label htmlFor="email">Email address</label>
                         <br />
                         <input
                             className="input-register"
@@ -46,7 +46,7 @@ const Register = () => {
                             required>
                         </input>
                         <br />
-                        <label for="username">Username</label>
+                        <label htmlFor="username">Username</label>
                         <br />
                         <input
                             className="input-register" 
@@ -58,7 +58,7 @@ const Register = () => {
                             }} 
                             required></input>
                         <br />
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <br />
                         <input
                             className="input-register" 

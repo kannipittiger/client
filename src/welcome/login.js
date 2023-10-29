@@ -1,24 +1,21 @@
 import './style/loginStyle.css';
 import Axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
 
 
 const Login = () => {
+  const [user,setUser] = useState({});
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-
   const loginUser = () => {
-    Axios.post('http://localhost:3001/login', {
+    Axios.post(`http://localhost:3001/login`, {
       username: username,
       password: password,
     })
       .then(() => {
-        // Handle successful login
-        //alert('Login successful! Welcome to Moodify');
-        // Redirect to the home page or any other page upon successful login
-        window.location.href = '/home';
+        window.location.href ="/home";
       })
       .catch((error) => {
         // Handle login error
@@ -72,9 +69,6 @@ const Login = () => {
             Log in
           </button>
           <br />
-          <Link className="link" to="/recover">
-            Forgot password
-          </Link>
           <p className="no-acc">Don't have an account?</p>
           <Link className="link" to="/register">
             Sign up for Moodify

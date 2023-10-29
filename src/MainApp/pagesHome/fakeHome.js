@@ -24,11 +24,11 @@ const FakeHome = () => {
     }, []);
 
     // Function to toggle the heart icon
-    const toggleHeartIcon = (index) => {
+    /*const toggleHeartIcon = (index) => {
         const newHeartFilled = [...isHeartFilled];
         newHeartFilled[index] = !newHeartFilled[index];
         setIsHeartFilled(newHeartFilled);
-    };
+    };*/
 
     return (
         <div className="rightbox scrollvr">
@@ -37,16 +37,15 @@ const FakeHome = () => {
                     <BsMusicNoteList size={60} style={{ paddingRight: 20 }} />
                 </div>
                 <div>
-                    <span>Hot hit</span>
+                    <span>Home</span>
                 </div>
                 <button className="logoutbtn">Logout</button>
             </div>
 
             <div className="grid-container">
+                
                 {song.map((songData, index) => (
-                    <div className="grid-item" key={songData.songID}>
-                        <Link to={`/audioplayer/${songData.songID}`}>
-                            <div>
+                    <Link to={`/lbox/${songData.songID}`}><div className="grid-item" key={songData.songID}>
                                 <div>
                                     <img
                                         style={{
@@ -67,9 +66,8 @@ const FakeHome = () => {
                                         <br />
                                     </div>
                                 </div>
-                            </div>
-                        </Link>
-                        <button onClick={() => toggleHeartIcon(index)}>
+                        
+                        {/* <button onClick={() => toggleHeartIcon(index)}>
                             {isHeartFilled[index] ? (
                                 <BsFillHeartFill
                                     color="red" // You can change the color for filled heart
@@ -83,8 +81,8 @@ const FakeHome = () => {
                                     style={{ marginLeft: '190px', paddingBottom: 10 }}
                                 />
                             )}
-                        </button>
-                    </div>
+                        </button> */}
+                    </div></Link>
                 ))}
             </div>
         </div>
