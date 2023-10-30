@@ -2,7 +2,7 @@ import '../Mainstyle/HomeStyle.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
-import {BsFillSearchHeartFill,BsFillCollectionFill,BsMusicNoteList,BsSearchHeart} from "react-icons/bs";
+import {BsSearchHeart} from "react-icons/bs";
 import Leftbox from './Lbox';
 
 const Search = () => {
@@ -19,7 +19,7 @@ const Search = () => {
     }
     const getSong = () => {
         axios
-            .get(`http://10.64.58.227:3001/songs/`)
+            .get(`http://localhost:3001/songs/`)
             .then((response) => {
                 setSong(response.data);
             })

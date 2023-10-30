@@ -92,7 +92,7 @@
     font-size: 20px;
     text-align: center;
     border-radius: 20px;
-    height: 55vh;
+    height: 50vh;
     width: 20vw;
     font-weight: bold;
 }
@@ -178,12 +178,13 @@
     justify-content: center;
     align-items: flex-start;
     margin-left: 6%;
+    margin-top: 10%;
 }
 
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;
-    height:55vh;
+    height:35px;
     scrollbar-width: none;
 }
 .scrollv::-webkit-scrollbar {
@@ -204,16 +205,16 @@
     border-radius: 50%;
     margin-top: 5vh;
 }
-#progress{
+.progress{
     -webkit-appearance: none;
-    width: 60%;
-    height: 6px;
+    width: 5%;
+    height: 2px;
     background: #ffd6ff;
     border-radius: 4px;
     cursor: pointer;
-    margin: 40px 0;
+    margin: 5px 0;
 }
-#progress::-webkit-slider-thumb{
+.progress::-webkit-slider-thumb{
     -webkit-appearance: none;
     background: #9f86c0;
     width: 20px;
@@ -227,14 +228,12 @@
     align-items: center;
 }
 .control div{
-    width: 60px;
-    height: 60px;
+    width: 20px;
+    height: 20px;
     margin: 20px;
-    background: white;
     display:inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     cursor: pointer;
     color: #9f86c0;
 }

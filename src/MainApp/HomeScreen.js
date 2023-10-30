@@ -5,8 +5,9 @@ import Blank from './pagesHome/Blank';
 import Leftbox from './pagesHome/Lbox';
 import FakeHome from './pagesHome/fakeHome';
 import Search from './pagesHome/Search';
+import { useParams } from 'react-router-dom';
 
-export default function Home() {
+const Home = () => {
     return(
 
             <div className='allbox'>
@@ -16,4 +17,4 @@ export default function Home() {
 
     )
 }
-
+export default Home

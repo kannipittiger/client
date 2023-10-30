@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { BsMusicNoteList, BsFillHeartFill, BsHeart} from 'react-icons/bs';
+import { BsMusicNoteList} from 'react-icons/bs';
+import Leftbox from './Lbox';
 
 const FakeHome = () => {
     const [song, setSong] = useState([]);
@@ -18,6 +19,14 @@ const FakeHome = () => {
                 console.error('Error fetching songs', error);
             });
     };
+    const shuffleArray = (array)  => {
+        const shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+        }
+        return shuffledArray;
+    }
 
     useEffect(() => {
         getSong();
@@ -38,10 +47,9 @@ const FakeHome = () => {
 
             <div className="grid-container">
                 
-                {song.map((songData, index) => (
+                {shuffleArray(song).map((songData, index) => (
                     <div className="grid-item" key={songData.songID}>
-                        <Link to={`/audioplayer/${songData.songID}`}>
-                            <div>
+                        <Link to={`/lbox/${songData.songID}`}>
                                 <div>
                                     <img
                                         style={{
@@ -62,7 +70,6 @@ const FakeHome = () => {
                                         <br />
                                     </div>
                                 </div>
-                            </div>
                         </Link>
                     </div>
                 ))}
