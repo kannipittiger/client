@@ -2,7 +2,7 @@ import './style/loginStyle.css';
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
-
+import { url_api } from '../config';
 
 const Login = () => {
   const [user,setUser] = useState({});
@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   const loginUser = () => {
-    Axios.post(`http://localhost:3001/login`, {
+    Axios.post(`${url_api}/login`, {
       username: username,
       password: password,
     })

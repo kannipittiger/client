@@ -77,12 +77,11 @@
 
 .grid-container {
     display: grid;
-    height: 100vh;
+    height: 80vh;
     grid-template-columns: auto auto auto;
     column-gap: 1%;
     row-gap: 10px;
-    padding: 10px;
-    
+    padding: 10px;    
 }
 
 .grid-item {
@@ -93,7 +92,7 @@
     text-align: center;
     border-radius: 20px;
     height: 50vh;
-    width: 20vw;
+    width: 18vw;
     font-weight: bold;
 }
 
@@ -161,6 +160,12 @@
     font-size: 30px;
 }
 
+.songfontdown{
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
 .songbox{
     display: flex;
     flex-direction: row;
@@ -178,13 +183,13 @@
     justify-content: center;
     align-items: flex-start;
     margin-left: 6%;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;
-    height:35px;
+    height:35vh;
     scrollbar-width: none;
 }
 .scrollv::-webkit-scrollbar {
@@ -199,22 +204,39 @@
 .scrollvr::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
+
+.song-label{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
 .song-img{
     width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-top: 5vh;
 }
-.progress{
+
+.song-imgplayer{
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#progress{
     -webkit-appearance: none;
-    width: 5%;
-    height: 2px;
+    width: 90%;
+    height: 5px;
     background: #ffd6ff;
     border-radius: 4px;
     cursor: pointer;
-    margin: 5px 0;
+    margin: 5px 0 ;
 }
-.progress::-webkit-slider-thumb{
+#progress::-webkit-slider-thumb{
     -webkit-appearance: none;
     background: #9f86c0;
     width: 20px;

@@ -6,18 +6,21 @@ import { FaBackward, FaForward, FaPlay, FaPause } from "react-icons/fa";
 import { BsFillSearchHeartFill, BsFillCollectionFill } from "react-icons/bs";
 import axios from 'axios';
 import FakeHome from './fakeHome';
+import { url_api } from '../../config';
 
-const Leftbox = () => {
+const Leftbox = (props) => {
     const [song, setSong] = useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentSong, setCurrentSong] = useState({});
+    const [RecSong, setRecSong] = useState({});
     const [trackIndex,setTrackIndex] = useState(0);
     const [trackProgress, setTrackProgress] = useState(0);
-    let { id } = useParams();
+    const [selectedSongId, setSelectedSongId] = useState(0);
     let index = parseInt(trackIndex);
+ 
 
     const getSongs = () => {
-        axios.get(`http://localhost:3001/songs`).then((response) => {
+        axios.get(`${url_api}/songs`).then((response) => {
             setSong(response.data);
             console.log("Songs:", response.data);
         }).catch((error) => {
@@ -26,7 +29,16 @@ const Leftbox = () => {
     }
 
     const getCurrentSong = (ID) => {
-        axios.get(`http://localhost:3001/songs/${ID}`).then((response) => {
+        axios.get(`${url_api}/songs/${ID}`).then((response) => {
+            setCurrentSong(response.data);
+            setTrackIndex(ID);
+            console.log("Songs :", response.data);
+        }).catch((error) => {
+            console.error('Error fetching songs', error);
+        });
+    }
+    const getCurrentRec = (ID) => {
+        axios.get(`${url_api}/songs/${ID}`).then((response) => {
             setCurrentSong(response.data);
             setTrackIndex(ID);
             console.log("Songs :", response.data);
@@ -37,8 +49,9 @@ const Leftbox = () => {
 
     useEffect(() => {
         getSongs();
-        getCurrentSong(id);
-    }, [id]);
+        getCurrentSong(props.id);
+        getCurrentRec(selectedSongId);
+    }, [props.id,selectedSongId]);
 
     const audioRef = useRef(new Audio(currentSong.song));
     const intervalRef = useRef();
@@ -157,7 +170,7 @@ const Leftbox = () => {
                     <div className='scrollv'>
                         {song.map((val, key) => (
                             <div key={key}>
-                                <Link to={`/lbox/${val.songID}`}>
+                                <div onClick={() => setSelectedSongId(val.songID)}>
                                     <div className='songbox'>
                                         <img className='song-img' src={val.image} alt={val.title} />
                                         <div className='artistbox'>
@@ -165,39 +178,37 @@ const Leftbox = () => {
                                             <label className='artistfont'>{val.artist}</label>
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    <div style={{flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-
-                        <div  style={{ marginRight: '80%',flexDirection:'row' }}>
-                            <img src={currentSong.image} className='song-img'
+                    <div>
+                        <div  style={{ display:'flex',flexDirection:'row' }}>
+                            <img src={currentSong.image} className='song-imgplayer'
                             alt={currentSong.title} />
-                            <label className='songfont'>{currentSong.title}</label>
-                            <br/>
-                            <label className='artistfont'>{currentSong.artist}</label>
-                        </div>
-
-                        <div className='control'>
-                            <div><FaBackward size={30} style={{ marginRight: 3 }} onClick={toPrevTrack} /></div>
-                            <div onClick={PlayPause}>
-                                {isPlaying ? 
-                                    <FaPause style={{ marginLeft: 3, marginTop: 2 }} />
-                                    : <FaPlay style={{ marginLeft: 3, marginTop: 2 }} />
-                                }
+                            <div className='song-label'>
+                                <label className='songfontdown'>{currentSong.title}  -  {currentSong.artist}</label>
+                                <div className='control'>
+                                    <div><FaBackward size={30} style={{ marginRight: 3 }} onClick={toPrevTrack} /></div>
+                                    <div onClick={PlayPause}>
+                                        {isPlaying ?
+                                            <FaPause style={{ marginLeft: 3, marginTop: 2 }} />
+                                            : <FaPlay style={{ marginLeft: 3, marginTop: 2 }} />
+                                        }
+                                    </div>
+                                    <div><FaForward size={30} style={{ marginLeft: 3 }} onClick={toNextTrack} /></div>
+                                </div>
                             </div>
-                            <div><FaForward size={30} style={{ marginLeft: 3 }} onClick={toNextTrack} /></div>
+                            
                         </div>
-                        
                         <input
                             type="range"
                             value={trackProgress}
                             step="1"
                             min="0"
                             max={duration ? duration : `${duration}`}
-                            className="progress"
+                            id="progress"
                             onChange={(e) => onScrub(e.target.value)}
                             onMouseUp={onScrubEnd}
                             onKeyUp={onScrubEnd}
@@ -207,6 +218,6 @@ const Leftbox = () => {
             </div>
         </div>
     );
-}
+}   
 
 export default Leftbox;

@@ -2,6 +2,7 @@ import './style/registerStyle.css'
 import Axios, { AxiosError } from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { url_api } from '../config';
 
 const Register = () => {
     const [userList, setUserList] = useState([]);
@@ -10,7 +11,7 @@ const Register = () => {
     const [password, setPassword] = useState("");
 
     const addUser = () => {
-        Axios.post('http://localhost:3001/create',{
+        Axios.post(`${url_api}/create`,{
             username: username,
             email:email,
             password:password

@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
 import {BsSearchHeart} from "react-icons/bs";
 import Leftbox from './Lbox';
+import { url_api } from '../../config';
 
 const Search = () => {
     const [song, setSong] = useState([]);
     const [search,setSearch] = useState("");
+    const [selectedSongId, setSelectedSongId] = useState(null);
+
 
     const shuffleArray = (array)  => {
         const shuffledArray = [...array];
@@ -19,7 +22,7 @@ const Search = () => {
     }
     const getSong = () => {
         axios
-            .get(`http://localhost:3001/songs/`)
+            .get(`${url_api}/songs/`)
             .then((response) => {
                 setSong(response.data);
             })
@@ -35,7 +38,7 @@ const Search = () => {
 
     return(
         <div className='allbox'>
-            <Leftbox/>
+            <Leftbox id={selectedSongId} />
             <div className='rightbox'>
                 <div className='textrp' style={{flexDirection:'row'}}>
                     <div style={{paddingTop:3}}>
@@ -59,42 +62,40 @@ const Search = () => {
                 </div>
                 
                 <div className="grid-container">
-                {shuffleArray(song).filter((song) => {
-                    if(search === ""){
-                        return song;
-                    }else if (song.title.toLowerCase().includes(search.toLowerCase())){
-                         return song;
-                    }
-                })
-                .map((song) => (
-                    <div className="grid-item" key={song.songID}>
-                        <Link to={`/audioplayer/${song.songID}`}>
-                            <div>
-                                <div>
-                                    <img
-                                        style={{
-                                            width: '150px',
-                                            height: '150px',
-                                            alignItems: 'center',
-                                            marginTop: '5vh',
-                                            borderRadius: '100%',
-                                        }}
-                                        src={song.image}
-                                        alt={`Song: ${song.title}`}
-                                    />
-                                    <br />
-                                    <div className="artistbox">
-                                        <label>Song: {song.title}</label>
+                    {shuffleArray(song).filter((song) => {
+                        if (search === "") {
+                            return song;
+                        } else if (song.title.toLowerCase().includes(search.toLowerCase())) {
+                            return song;
+                        }
+                    })
+                        .map((song) => (
+                            <div className="grid-item" key={song.songID}>
+                                    <div onClick={() => setSelectedSongId(song.songID)}>
+                                    <div>
+                                        <img
+                                            style={{
+                                                width: '150px',
+                                                height: '150px',
+                                                alignItems: 'center',
+                                                marginTop: '5vh',
+                                                borderRadius: '100%',
+                                            }}
+                                            src={song.image}
+                                            alt={`Song: ${song.title}`}
+                                        />
                                         <br />
-                                        <label>Artist: {song.artist}</label>
-                                        <br />
+                                        <div className="artistbox">
+                                            <label>Song: {song.title}</label>
+                                            <br />
+                                            <label>Artist: {song.artist}</label>
+                                            <br />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </Link>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
                 
             </div>
         </div>

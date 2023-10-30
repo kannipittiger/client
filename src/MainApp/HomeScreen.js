@@ -10,8 +10,8 @@ import { useParams } from 'react-router-dom';
 const Home = () => {
     return(
 
-            <div className='allbox'>
-                <Leftbox/>
+            <div>
+                {/* <Leftbox/> */}
                 <FakeHome/>
             </div>
 

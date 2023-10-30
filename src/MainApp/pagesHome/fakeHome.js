@@ -3,14 +3,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { BsMusicNoteList} from 'react-icons/bs';
 import Leftbox from './Lbox';
+import { url_api } from '../../config';
 
 const FakeHome = () => {
     const [song, setSong] = useState([]);
-
+    const [selectedSongId, setSelectedSongId] = useState(null);
 
     const getSong = () => {
         axios
-            .get(`http://localhost:3001/songs/`)
+            .get(`${url_api}/songs/`)
             .then((response) => {
                 setSong(response.data);
                 
@@ -34,45 +35,47 @@ const FakeHome = () => {
 
 
     return (
-        <div className="rightbox scrollvr">
-            <div className="textrp">
-                <div style={{ paddingTop: 0 }}>
-                    <BsMusicNoteList size={60} style={{ paddingRight: 20 }} />
-                </div>
-                <div>
-                    <span>Home</span>
-                </div>
-                <button className="logoutbtn">Logout</button>
-            </div>
-
-            <div className="grid-container">
-                
-                {shuffleArray(song).map((songData, index) => (
-                    <div className="grid-item" key={songData.songID}>
-                        <Link to={`/lbox/${songData.songID}`}>
-                                <div>
-                                    <img
-                                        style={{
-                                            width: '150px',
-                                            height: '150px',
-                                            alignItems: 'center',
-                                            marginTop: '5vh',
-                                            borderRadius: '100%',
-                                        }}
-                                        src={songData.image}
-                                        alt={`Song: ${songData.title}`}
-                                    />
-                                    <br />
-                                    <div className="artistbox">
-                                        <label>Song: {songData.title}</label>
-                                        <br />
-                                        <label>Artist: {songData.artist}</label>
-                                        <br />
-                                    </div>
-                                </div>
-                        </Link>
+        <div className='allbox'>
+            <Leftbox id={selectedSongId} />
+            <div className="rightbox scrollvr">
+                <div className="textrp">
+                    <div style={{ paddingTop: 0 }}>
+                        <BsMusicNoteList size={60} style={{ paddingRight: 20 }} />
                     </div>
-                ))}
+                    <div>
+                        <span>Home</span>
+                    </div>
+                    <button className="logoutbtn">Logout</button>
+                </div>
+
+                <div className="grid-container">  
+                    {shuffleArray(song).map((songData, index) => (
+                        <div className="grid-item" key={songData.songID}>
+                            <div onClick={() => setSelectedSongId(songData.songID)}>
+                                    <div>
+                                        <img
+                                            style={{
+                                                width: '150px',
+                                                height: '150px',
+                                                alignItems: 'center',
+                                                marginTop: '5vh',
+                                                borderRadius: '100%',
+                                            }}
+                                            src={songData.image}
+                                            alt={`Song: ${songData.title}`}
+                                        />
+                                        <br />
+                                        <div className="artistbox">
+                                            <label>Song: {songData.title}</label>
+                                            <br />
+                                            <label>Artist: {songData.artist}</label>
+                                            <br />
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
