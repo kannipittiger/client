@@ -125,7 +125,7 @@ const Leftbox = (props) => {
     }, [isPlaying]);
 
     useEffect(() => {
-        //audioRef.current.pause();
+        audioRef.current.pause();
     
         audioRef.current = new Audio(currentSong.song);
         setTrackProgress(audioRef.current.currentTime);

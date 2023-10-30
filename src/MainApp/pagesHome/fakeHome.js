@@ -45,7 +45,7 @@ const FakeHome = () => {
                     <div>
                         <span>Home</span>
                     </div>
-                    <button className="logoutbtn">Logout</button>
+                    <Link to="/" className='link1'><button className="logoutbtn">Logout</button></Link>
                 </div>
 
                 <div className="grid-container">  

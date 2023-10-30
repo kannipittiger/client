@@ -56,9 +56,9 @@ const Search = () => {
                     </input>
                     </div>
                     {/* <button className='searchbtn' onClick={searchInput}>Search</button> */}
-                    <button className='logoutbtn2'>
+                    <Link to="/" className='link2'><button className='logoutbtn2'>
                         logout
-                    </button>
+                    </button></Link>
                 </div>
                 
                 <div className="grid-container">
