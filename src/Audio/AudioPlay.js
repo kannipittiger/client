@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-import AudioControls from "./AudioControl";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { FaBackward, FaForward, FaPlay, FaPause } from "react-icons/fa";
 import "./assets/styles.css";
 import { url_api } from "../config";
-import { TfiControlBackward } from "react-icons/tfi";
 
 
 /*
@@ -19,7 +17,6 @@ const AudioPlayer = () => {
   const [currentSong, setCurrentSong] = useState({});
   const [trackIndex,setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
-  const [rest,setRest] = useState({});
   let index = parseInt(trackIndex);
   let {id} = useParams();
 
@@ -50,7 +47,6 @@ const AudioPlayer = () => {
 
   const audioRef = useRef(new Audio(currentSong.song));
   const intervalRef = useRef();
-  const isReady = useRef(false);
 
 
   // Destructure for conciseness
@@ -165,8 +161,10 @@ const AudioPlayer = () => {
     };
 
   return (
+    <div className="full">
+      <Link to="/home" onClick={() => {setIsPlaying(false)}} className="back"><div ></div></Link>
     <div className="audio-player">
-      <Link to="/home" onClick={() => {setIsPlaying(false)}}><TfiControlBackward size={24} color="white"></TfiControlBackward></Link>
+      
       <div className="track-info">
         <img
           className="artwork"
@@ -194,7 +192,7 @@ const AudioPlayer = () => {
           value={trackProgress}
           step="1"
           min="0"
-          max={duration ? duration : `${duration}`}
+          max={duration ? duration : `${currentPercentage}`}
           id="progress"
           onChange={(e) => onScrub(e.target.value)}
           onMouseUp={onScrubEnd}
@@ -202,6 +200,8 @@ const AudioPlayer = () => {
         />
       </div>
 
+    </div>
+    <Link to="/home" onClick={() => {setIsPlaying(false)}} className="back"><div ></div></Link>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import './style/registerStyle.css'
-import Axios, { AxiosError } from 'axios';
+import Axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { url_api } from '../config';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [userList, setUserList] = useState([]);
@@ -11,20 +12,59 @@ const Register = () => {
     const [password, setPassword] = useState("");
 
     const addUser = () => {
+        if (!username || !password || !email) {
+    
+            Swal.fire({
+              icon: 'error',
+              title: 'ผิดพลาด',
+              text: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+            });
+            return;
+          }
+      
+          if (password.length < 8 || password.length > 20) {
+            
+            Swal.fire({
+              icon: 'error',
+              title: 'ผิดพลาด',
+              text: 'รหัสผ่านต้องมีความยาวระหว่าง 8 ถึง 20 ตัวอักษร',
+            });
+            return;
+          }
+      
+          if (!email.includes('@')) {
+      
+            Swal.fire({
+              icon: 'error',
+              title: 'ผิดพลาด',
+              text: 'อีเมลไม่ถูกต้อง',
+            });
+            return;
+          }
         Axios.post(`${url_api}/create`,{
             username: username,
             email:email,
             password:password
-        }).then(() => {
+        }).then((response) => {
             setUserList([            
             ...userList,{
                 username:username,
                 email:email,
                 password:password
             }])
+            Swal.fire({
+                icon: 'success',
+                title: 'สมัครสมาชิกสำเร็จ',
+                text: 'ยินดีต้อนรับ! คุณได้สมัครสมาชิกแล้ว'
+              });
 
-        })
-        alert("Sign up success");
+        }).catch((error) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'สมัครสมาชิกล้มเหลว',
+              text: 'กรุณาสมัครสมาชิกอีกรอบ'
+            });
+          });
     }
     return (
         <div className="register">

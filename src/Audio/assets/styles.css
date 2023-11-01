@@ -1,10 +1,22 @@
 :root {
+
   --white: #fff;
   --active-color: url('https://i.ibb.co/JnSffjh/maxresdefault.jpg[/img][/url');
 }
 
 * {
   box-sizing: border-box;
+}
+
+.full{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+}
+
+.back{
+  width: 100%;
 }
 
 html {
@@ -29,12 +41,11 @@ input[type="range"] {
 }
 
 .audio-player {
-  max-width: 350px;
+  width: 1500px;
   padding: 24px;
   border-radius: 20px;
   box-shadow: 0 28px 28px rgba(0, 0, 0, 0.2);
 
-  margin: auto;
   color: var(--white);
   display: flex;
   flex-direction: column;

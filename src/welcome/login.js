@@ -1,11 +1,11 @@
 import './style/loginStyle.css';
 import Axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link} from 'react-router-dom';
 import { url_api } from '../config';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-  const [user,setUser] = useState({});
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -20,7 +20,10 @@ const Login = () => {
       .catch((error) => {
         // Handle login error
         console.error('Login failed:', error);
-        alert('Login failed. Please check your credentials.');
+        Swal.fire({
+          icon:'error',
+          title: 'Oops...',
+          text:'Login failed. Please check your credentials.'});
       });
   };
 

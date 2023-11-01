@@ -10,7 +10,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     user:"root",
     host:"localhost",
-    password:"jayjay23",
+    password:"",
     database:"moodify"
 })
 
@@ -43,15 +43,30 @@ app.post('/create',(req,res) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
-
+    if (!username || !password || !confirmpassword || !email) {
+        return res.status(400).send("กรุณากรอกข้อมูลให้ครบถ้วน");
+      }
+    
+      if (password.length < 8 || password.length > 20) {
+        return res.status(400).send("รหัสผ่านต้องมีความยาวระหว่าง 8 ถึง 20 ตัวอักษร");
+      }
+    
+      if (password !== confirmpassword) {
+        return res.status(400).send("รหัสผ่านและการยืนยันรหัสผ่านไม่ตรงกัน");
+      }
+    
+      if (!email.includes('@')) {
+        return res.status(400).send("อีเมลไม่ถูกต้อง");
+      }
     db.query("INSERT INTO users (username,email,password) VALUES (?,?,?)",
         [username,email,password],
         (err,result) => {
-            if(err){
-                console.log(err);
-            }else{
-                res.send("Values inserted");
-            }
+            if (err) {
+                return res.status(400).send("เกิดข้อผิดพลาดในการเพิ่มข้อมูล");
+              } else {
+                return res.status(200).send("ค่าถูกเพิ่มเข้าสู่ฐานข้อมูล");
+                
+              }
         }
     );
 });

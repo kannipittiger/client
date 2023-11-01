@@ -5,13 +5,10 @@ import React, { useState,useEffect } from 'react';
 import {BsSearchHeart} from "react-icons/bs";
 import Leftbox from './Lbox';
 import { url_api } from '../../config';
-import AudioPlayer from '../../Audio/AudioPlay';
 
 const Search = () => {
     const [song, setSong] = useState([]);
     const [search,setSearch] = useState("");
-    const [selectedSongId, setSelectedSongId] = useState(null);
-
 
     const shuffleArray = (array)  => {
         const shuffledArray = [...array];
@@ -72,7 +69,7 @@ const Search = () => {
                     })
                         .map((song) => (
                             <div className="grid-item" key={song.songID}>
-                                <Link to={`/audioplayer/${song.songID}`}><div onClick={() => setSelectedSongId(song.songID)}>
+                                <Link to={`/audioplayer/${song.songID}`}>
                                     <div>
                                         <img
                                             style={{
@@ -83,7 +80,7 @@ const Search = () => {
                                                 borderRadius: '100%',
                                             }}
                                             src={song.image}
-                                            alt={`Song: ${song.title}`}
+                                            alt={`Song ${song.title}`}
                                         />
                                         <br />
                                         <div className="artistbox">
@@ -93,7 +90,7 @@ const Search = () => {
                                             <br />
                                         </div>
                                     </div>
-                                </div></Link>
+                                </Link>
                             </div>
                     ))}
                 </div>
