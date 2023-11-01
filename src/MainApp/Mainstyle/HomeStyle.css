@@ -79,9 +79,10 @@
     display: grid;
     height: 80vh;
     grid-template-columns: auto auto auto;
-    column-gap: 1%;
+    column-gap: 5%;
     row-gap: 10px;
-    padding: 10px;    
+    padding: 10px;
+    margin-left: 1%;
 }
 
 .grid-item {
@@ -94,6 +95,7 @@
     height: 50vh;
     width: 18vw;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .searchinput{
@@ -177,6 +179,7 @@
     display: flex;
     flex-direction: row;
     margin-left: 3%;
+    cursor: pointer;
 }
 
 .artistfont{
@@ -196,7 +199,7 @@
 .scrollv{
     -ms-overflow-style: none;
     overflow-y:scroll;
-    height:35vh;
+    height:55vh;
     scrollbar-width: none;
 }
 .scrollv::-webkit-scrollbar {

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { BsMusicNoteList} from 'react-icons/bs';
-import Leftbox from './Lbox';
+import AudioPlayer from '../../Audio/AudioPlay';
 import { url_api } from '../../config';
+import Leftbox from './Lbox';
 
 const FakeHome = () => {
     const [song, setSong] = useState([]);
@@ -36,7 +37,7 @@ const FakeHome = () => {
 
     return (
         <div className='allbox'>
-            <Leftbox id={selectedSongId} />
+            <Leftbox/>
             <div className="rightbox scrollvr">
                 <div className="textrp">
                     <div style={{ paddingTop: 0 }}>
@@ -51,7 +52,7 @@ const FakeHome = () => {
                 <div className="grid-container">  
                     {shuffleArray(song).map((songData, index) => (
                         <div className="grid-item" key={songData.songID}>
-                            <div onClick={() => setSelectedSongId(songData.songID)}>
+                            <Link to={`/audioplayer/${songData.songID}`}><div onClick={() => setSelectedSongId(songData.songID)}>
                                     <div>
                                         <img
                                             style={{
@@ -72,7 +73,7 @@ const FakeHome = () => {
                                             <br />
                                         </div>
                                     </div>
-                            </div>
+                            </div></Link>
                         </div>
                     ))}
                 </div>

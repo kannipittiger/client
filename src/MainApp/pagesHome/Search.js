@@ -5,6 +5,7 @@ import React, { useState,useEffect } from 'react';
 import {BsSearchHeart} from "react-icons/bs";
 import Leftbox from './Lbox';
 import { url_api } from '../../config';
+import AudioPlayer from '../../Audio/AudioPlay';
 
 const Search = () => {
     const [song, setSong] = useState([]);
@@ -38,7 +39,7 @@ const Search = () => {
 
     return(
         <div className='allbox'>
-            <Leftbox id={selectedSongId} />
+            <Leftbox/>
             <div className='rightbox'>
                 <div className='textrp' style={{flexDirection:'row'}}>
                     <div style={{paddingTop:3}}>
@@ -71,7 +72,7 @@ const Search = () => {
                     })
                         .map((song) => (
                             <div className="grid-item" key={song.songID}>
-                                    <div onClick={() => setSelectedSongId(song.songID)}>
+                                <Link to={`/audioplayer/${song.songID}`}><div onClick={() => setSelectedSongId(song.songID)}>
                                     <div>
                                         <img
                                             style={{
@@ -92,7 +93,7 @@ const Search = () => {
                                             <br />
                                         </div>
                                     </div>
-                                </div>
+                                </div></Link>
                             </div>
                     ))}
                 </div>

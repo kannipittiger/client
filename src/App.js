@@ -20,7 +20,7 @@ function App() {
         <Route path="login" element={<Login/>}/>
         <Route path="home" element={<Home/>}/>
         <Route path="search" element={<Search/>}/>
-        {/* <Route path="/audioplayer/:id" element={<AudioPlayer />}/> */}
+        <Route path="/audioplayer/:id" element={<AudioPlayer />}/>
         <Route path ="/lbox/:id" element={<Lbox/>}/>
       </Routes>
     </BrowserRouter>
