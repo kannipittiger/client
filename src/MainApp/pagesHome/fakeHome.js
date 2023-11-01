@@ -46,7 +46,7 @@ const FakeHome = () => {
                     </div>
                     <Link to="/" className='link1'><button className="logoutbtn">Logout</button></Link>
                 </div>
-
+                <hr color='#150c1e' style={{height:'10px'}}></hr>
                 <div className="grid-container">  
                     {shuffleArray(song).map((songData, index) => (
                         <div className="grid-item" key={songData.songID}>
@@ -58,7 +58,7 @@ const FakeHome = () => {
                                                 height: '150px',
                                                 alignItems: 'center',
                                                 marginTop: '5vh',
-                                                borderRadius: '100%',
+                                                borderRadius: '20%'
                                             }}
                                             src={songData.image}
                                             alt={`Song: ${songData.title}`}

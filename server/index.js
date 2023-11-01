@@ -10,7 +10,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     user:"root",
     host:"localhost",
-    password:"",
+    password:"jayjay23",
     database:"moodify"
 })
 
@@ -43,16 +43,12 @@ app.post('/create',(req,res) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
-    if (!username || !password || !confirmpassword || !email) {
+    if (!username || !password || !email) {
         return res.status(400).send("กรุณากรอกข้อมูลให้ครบถ้วน");
       }
     
       if (password.length < 8 || password.length > 20) {
         return res.status(400).send("รหัสผ่านต้องมีความยาวระหว่าง 8 ถึง 20 ตัวอักษร");
-      }
-    
-      if (password !== confirmpassword) {
-        return res.status(400).send("รหัสผ่านและการยืนยันรหัสผ่านไม่ตรงกัน");
       }
     
       if (!email.includes('@')) {

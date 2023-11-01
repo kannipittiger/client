@@ -58,8 +58,8 @@ const Search = () => {
                         logout
                     </button></Link>
                 </div>
-                
-                <div className="grid-container">
+                <hr color='#150c1e' style={{height:'10px'}}></hr>
+                <div className="grid-container scrollvrsearch">
                     {shuffleArray(song).filter((song) => {
                         if (search === "") {
                             return song;
@@ -77,7 +77,7 @@ const Search = () => {
                                                 height: '150px',
                                                 alignItems: 'center',
                                                 marginTop: '5vh',
-                                                borderRadius: '100%',
+                                                borderRadius: ' 20%',
                                             }}
                                             src={song.image}
                                             alt={`Song ${song.title}`}

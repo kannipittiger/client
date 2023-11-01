@@ -161,7 +161,7 @@ const AudioPlayer = () => {
     };
 
   return (
-    <div className="full">
+    <div className="full" style={{ backgroundImage: `url(${currentSong.background})`}}>
       <Link to="/home" onClick={() => {setIsPlaying(false)}} className="back"><div ></div></Link>
     <div className="audio-player">
       
@@ -170,16 +170,18 @@ const AudioPlayer = () => {
           className="artwork"
           src={currentSong.image}
         />
+        <div className="tagg">
         <h2 className="title">{currentSong.title}</h2>
         <h3 className="artist">{currentSong.artist}</h3>
+        </div>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           <div className='song-label'>
             <div className='control'>
               <div><FaBackward size={30} style={{ marginRight: 3 }} onClick={toPrevTrack} /></div>
               <div onClick={PlayPause}>
                 {isPlaying ?
-                  <FaPause style={{ marginLeft: 3, marginTop: 2 }} />
-                  : <FaPlay style={{ marginLeft: 3, marginTop: 2 }} />
+                  <FaPause style={{ marginLeft: 3, marginTop: 2 }} size={30}/>
+                  : <FaPlay style={{ marginLeft: 3, marginTop: 2 }} size={30}/>
                 }
               </div>
               <div><FaForward size={30} style={{ marginLeft: 3 }} onClick={toNextTrack} /></div>

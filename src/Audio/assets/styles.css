@@ -1,7 +1,7 @@
 :root {
-
+  /* filter: blur(10px); */
   --white: #fff;
-  --active-color: url('https://i.ibb.co/JnSffjh/maxresdefault.jpg[/img][/url');
+  --active-color: url('https://i.ibb.co/JnSffjh/maxresdefault.jpg');
 }
 
 * {
@@ -13,6 +13,11 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
+  background-size: cover;
+  background-position: center;
+  /* filter: blur(10px); */
+  /* backdrop-filter: blur(10px); 
+  background-color: rgba(255, 255, 255, 0.5); */
 }
 
 .back{
@@ -22,9 +27,7 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
-  background: var(--active-color);
-  background-size: cover;
-  transition: background 0.4s ease;
+  
 
 }
 
@@ -69,12 +72,14 @@ input[type="range"] {
 }
 
 .title {
-  font-weight: 700;
+  font-size: 45px;
+  font-weight: 1500;
   margin-bottom: 4px;
 }
 
 .artist {
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 1000;
   margin-top: 0;
 }
 
@@ -123,4 +128,34 @@ input[type="range"] {
   to {
     filter: hue-rotate(360deg);
   }
+}
+
+.control{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.control div{
+  width: 65px;
+  height: 65px;
+  margin: 20px;
+  border-radius: 50%;
+  background-color: white;
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #9f86c0;
+}
+
+.control div :nth-child(2){
+  transform: scale(1.5);
+  background: #9f86c0;
+  color: white;
+}
+
+.tagg{
+  
+  padding: 10px;
+  border-radius: 50%;
 }
