@@ -44,7 +44,7 @@ const AudioPlayer = () => {
   const intervalRef = useRef();
 
 
-  // Destructure for conciseness
+ 
   const { duration } = audioRef.current;
 
   const currentPercentage = duration
@@ -136,11 +136,9 @@ const AudioPlayer = () => {
           audioRef.current.pause();
         }
       } else {
-        audioRef.current.play().then(() => {
+        // ทำตามที่คุณต้องการเมื่อต้องการเล่นเพลง
+        audioRef.current.play()
           startTimer();
-        }).catch((error) => {
-          console.error('Error playing audio:', error);
-        });
       }
     
       setIsPlaying(!isPlaying);
