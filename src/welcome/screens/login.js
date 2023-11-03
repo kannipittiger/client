@@ -1,8 +1,8 @@
-import './style/loginStyle.css';
+import '../style/loginStyle.css';
 import Axios from 'axios';
 import { useState } from 'react';
 import { Link} from 'react-router-dom';
-import { url_api } from '../config';
+import { url_api } from '../../config';
 import Swal from 'sweetalert2';
 
 const Login = () => {

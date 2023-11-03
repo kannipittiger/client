@@ -13,8 +13,8 @@ const Leftbox = (props) => {
 
     const getSongs = () => {
         axios.get(`${url_api}/songs`).then((response) => {
-            setSong(response.data);
-            console.log("Songs:", response.data);
+            const limitedData = response.data.slice(0, 5);//limit data
+            setSong(limitedData);
         }).catch((error) => {
             console.error('Error fetching songs', error);
         });

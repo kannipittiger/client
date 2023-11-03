@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { FaBackward, FaForward, FaPlay, FaPause } from "react-icons/fa";
-import "./assets/styles.css";
+import "./style/styles.css";
 import { url_api } from "../config";
 
 

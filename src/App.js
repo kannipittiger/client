@@ -1,12 +1,13 @@
 import './App.css';
-import Welcome from './welcome/welcome';
-import Register from './welcome/register';
-import Login from './welcome/login';
-import Home from './MainApp/HomeScreen';
+import Welcome from './welcome/screens/welcome';
+import Register from './welcome/screens/register';
+import Login from './welcome/screens/login';
+import Home from './MainApp/HomePages/HomeScreen';
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
-import Search from './MainApp/pagesHome/Search';
-import AudioPlayer from './Audio/AudioPlay';
-import Lbox from './MainApp/pagesHome/Lbox';
+import LeftBox from './MainApp/HomePages/LeftBox';
+import Search from './MainApp/HomePages/Search';
+import AudioPlayer from './Audio/AudioPlayer';
+
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path="home" element={<Home/>}/>
         <Route path="search" element={<Search/>}/>
         <Route path="/audioplayer/:id" element={<AudioPlayer />}/>
-        <Route path ="/lbox/:id" element={<Lbox/>}/>
+        <Route path ="/lbox/:id" element={<LeftBox/>}/>
       </Routes>
     </BrowserRouter>
   );

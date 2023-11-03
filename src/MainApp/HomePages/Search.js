@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
 import {BsSearchHeart} from "react-icons/bs";
-import Leftbox from './Lbox';
+import Leftbox from './LeftBox';
 import { url_api } from '../../config';
 
 const Search = () => {

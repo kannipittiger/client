@@ -1,4 +1,4 @@
-import './style/welcomeStyle.css'
+import '../style/welcomeStyle.css'
 import {Link} from 'react-router-dom'
 
 export default function Welcome(){

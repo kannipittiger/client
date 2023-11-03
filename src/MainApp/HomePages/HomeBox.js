@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { BsMusicNoteList} from 'react-icons/bs';
 import { url_api } from '../../config';
-import Leftbox from './Lbox';
+import Leftbox from './LeftBox';
 
 const FakeHome = () => {
     const [song, setSong] = useState([]);

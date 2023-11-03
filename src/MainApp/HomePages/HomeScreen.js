@@ -1,11 +1,10 @@
-import './Mainstyle/HomeStyle.css';
 import React from 'react';
-import FakeHome from './pagesHome/fakeHome';
+import HomeBox from './HomeBox';
 
 const Home = () => {
     return(
             <div>
-                <FakeHome/>
+                <HomeBox/>
             </div>
     )
 }
