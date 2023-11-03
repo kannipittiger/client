@@ -75,6 +75,16 @@
     flex-direction: row;
 }
 
+.textsearch{
+    color: #E4D9FF;
+    font-size: 40px;
+    text-align: left;
+    padding-top: 13px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
 .grid-container {
     display: grid;
     height: 80vh;
@@ -86,7 +96,7 @@
 }
 
 .grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid #E4D9FF;
     padding: 20px;
     font-size: 20px;
     text-align: center;
@@ -95,12 +105,13 @@
     width: 18vw;
     font-weight: bold;
     cursor: pointer;
+    background-color: #000;
 }
 
 .searchinput{
     border-radius: 50px;
     width: 250px;
-    height: 60px;
+    height: 50px;
     background-color: #2a2d36;
     border-color: white;
     color:white;
@@ -125,7 +136,7 @@
 }
 
 .link1{
-    margin-left: 60%;
+    margin-left: 65%;
 }
 
 .logoutbtn2{
@@ -141,7 +152,7 @@
 }
 
 .link2{
-    margin-left: 40%;
+    margin-left: 50%;
 }
 
 .header{
@@ -166,6 +177,7 @@
 
 .songfont{
     font-size: 30px;
+    color: #E4D9FF;
 }
 
 .songfontdown{
@@ -183,14 +195,16 @@
 
 .artistfont{
     font-size: 20px;
+    color:rgb(190, 184, 184);
 }
 
 .artistbox{
-    color:white;
+    color:#E4D9FF;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    text-align: start;
     margin-left: 6%;
     margin-top: 5%;
 }

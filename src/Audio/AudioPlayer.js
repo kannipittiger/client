@@ -6,11 +6,6 @@ import { FaBackward, FaForward, FaPlay, FaPause } from "react-icons/fa";
 import "./style/styles.css";
 import { url_api } from "../config";
 
-
-/*
- * Read the blog post here:
- * https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks
- */
 const AudioPlayer = () => {
   const [song, setSong] = useState([]);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -101,15 +96,12 @@ const AudioPlayer = () => {
           onScrubEnd();
       }
   };
-  //แก้ตรงนี้
   useEffect(() => {
     audioRef.current.pause();
     audioRef.current = new Audio(currentSong.song);
     if (isPlaying) {
       if (audioRef.current.paused) {
         audioRef.current.play().then(() => {
-          console.log(trackProgress,"H")
-          //setIsPlaying(true);
           startTimer();
         }).catch((error) => {
           console.error('Error playing audio:', error);
@@ -124,7 +116,6 @@ const AudioPlayer = () => {
         });
       }
     } else {
-      console.log(trackProgress,"Hi")
       audioRef.current.pause();
       clearInterval(intervalRef.current);
     }
@@ -141,14 +132,10 @@ const AudioPlayer = () => {
 
     const PlayPause = () => {
       if (isPlaying) {
-        // ตรวจสอบว่าไม่มีการร้องขอเพลงคำขอกำลังถูกดำเนิน
         if (!audioRef.current.paused) {
-          // ทำตามที่คุณต้องการเช่น เรียก `pause()` หรือทำบางสิ่งก่อนจะเรียก `pause()`
           audioRef.current.pause();
-          console.log('1')
         }
       } else {
-        // ทำตามที่คุณต้องการเมื่อต้องการเล่นเพลง
         audioRef.current.play().then(() => {
           startTimer();
         }).catch((error) => {
@@ -156,7 +143,6 @@ const AudioPlayer = () => {
         });
       }
     
-      // สลับสถานะเล่น/หยุดเล่น
       setIsPlaying(!isPlaying);
     };
 

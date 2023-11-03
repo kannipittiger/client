@@ -38,9 +38,9 @@ const Search = () => {
         <div className='allbox'>
             <Leftbox/>
             <div className='rightbox'>
-                <div className='textrp' style={{flexDirection:'row'}}>
-                    <div style={{paddingTop:3}}>
-                    <BsSearchHeart size={70}style={{paddingRight:20,paddingTop:0}}/>
+                <div className='textsearch' style={{flexDirection:'row'}}>
+                    <div style={{paddingTop:7}}>
+                    <BsSearchHeart size={60}style={{paddingRight:20,paddingTop:0}}/>
                     </div>
                     <div>
                         <input className='searchinput'
@@ -53,9 +53,8 @@ const Search = () => {
                             >
                     </input>
                     </div>
-                    {/* <button className='searchbtn' onClick={searchInput}>Search</button> */}
                     <Link to="/" className='link2'><button className='logoutbtn2'>
-                        logout
+                        Logout
                     </button></Link>
                 </div>
                 <hr color='#150c1e' style={{height:'10px'}}></hr>
@@ -73,20 +72,19 @@ const Search = () => {
                                     <div>
                                         <img
                                             style={{
-                                                width: '150px',
-                                                height: '150px',
+                                                width: '200px',
+                                                height: '200px',
                                                 alignItems: 'center',
                                                 marginTop: '5vh',
-                                                borderRadius: ' 20%',
+                                                borderRadius: ' 10%',
                                             }}
                                             src={song.image}
                                             alt={`Song ${song.title}`}
                                         />
                                         <br />
                                         <div className="artistbox">
-                                            <label>Song: {song.title}</label>
-                                            <br />
-                                            <label>Artist: {song.artist}</label>
+                                            <label>{song.title}</label>
+                                            <label style={{fontSize:'15px',color:'rgb(190, 184, 184)'}}>Artist: {song.artist}</label>
                                             <br />
                                         </div>
                                     </div>

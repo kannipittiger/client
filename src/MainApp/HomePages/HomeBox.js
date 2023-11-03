@@ -54,20 +54,20 @@ const FakeHome = () => {
                                     <div>
                                         <img
                                             style={{
-                                                width: '150px',
-                                                height: '150px',
-                                                alignItems: 'center',
+                                                width: '200px',
+                                                height: '200px',
+                                                alignSelf: 'center',
                                                 marginTop: '5vh',
-                                                borderRadius: '20%'
+                                                borderRadius: '10%'
                                             }}
                                             src={songData.image}
                                             alt={`Song: ${songData.title}`}
                                         />
                                         <br />
                                         <div className="artistbox">
-                                            <label>Song: {songData.title}</label>
-                                            <br />
-                                            <label>Artist: {songData.artist}</label>
+                                            <label>{songData.title}</label>
+                                            
+                                            <label style={{fontSize:'15px',color:'rgb(190, 184, 184)'}}>Artist: {songData.artist}</label>
                                             <br />
                                         </div>
                                     </div>
